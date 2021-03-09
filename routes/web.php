@@ -41,46 +41,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('products/ckmedia', 'ProductController@storeCKEditorImages')->name('products.storeCKEditorImages');
     Route::resource('products', 'ProductController');
 
-    // Orders
-    Route::resource('orders', 'OrdersController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
-
-    // Task Statuses
-    Route::delete('task-statuses/destroy', 'TaskStatusController@massDestroy')->name('task-statuses.massDestroy');
-    Route::resource('task-statuses', 'TaskStatusController');
-
-    // Task Tags
-    Route::delete('task-tags/destroy', 'TaskTagController@massDestroy')->name('task-tags.massDestroy');
-    Route::resource('task-tags', 'TaskTagController');
-
-    // Tasks
-    Route::delete('tasks/destroy', 'TaskController@massDestroy')->name('tasks.massDestroy');
-    Route::post('tasks/media', 'TaskController@storeMedia')->name('tasks.storeMedia');
-    Route::post('tasks/ckmedia', 'TaskController@storeCKEditorImages')->name('tasks.storeCKEditorImages');
-    Route::resource('tasks', 'TaskController');
-
-    // Tasks Calendars
-    Route::resource('tasks-calendars', 'TasksCalendarController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
-
-    // Expense Categories
-    Route::delete('expense-categories/destroy', 'ExpenseCategoryController@massDestroy')->name('expense-categories.massDestroy');
-    Route::resource('expense-categories', 'ExpenseCategoryController');
-
-    // Income Categories
-    Route::delete('income-categories/destroy', 'IncomeCategoryController@massDestroy')->name('income-categories.massDestroy');
-    Route::resource('income-categories', 'IncomeCategoryController');
-
-    // Expenses
-    Route::delete('expenses/destroy', 'ExpenseController@massDestroy')->name('expenses.massDestroy');
-    Route::resource('expenses', 'ExpenseController');
-
-    // Incomes
-    Route::delete('incomes/destroy', 'IncomeController@massDestroy')->name('incomes.massDestroy');
-    Route::resource('incomes', 'IncomeController');
-
-    // Expense Reports
-    Route::delete('expense-reports/destroy', 'ExpenseReportController@massDestroy')->name('expense-reports.massDestroy');
-    Route::resource('expense-reports', 'ExpenseReportController');
-
     // Sliders
     Route::delete('sliders/destroy', 'SlidersController@massDestroy')->name('sliders.massDestroy');
     Route::post('sliders/media', 'SlidersController@storeMedia')->name('sliders.storeMedia');
@@ -90,11 +50,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Contacts
     Route::resource('contacts', 'ContactController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
 
-    // Blog Pages
-    Route::delete('blog-pages/destroy', 'BlogPageController@massDestroy')->name('blog-pages.massDestroy');
-    Route::post('blog-pages/media', 'BlogPageController@storeMedia')->name('blog-pages.storeMedia');
-    Route::post('blog-pages/ckmedia', 'BlogPageController@storeCKEditorImages')->name('blog-pages.storeCKEditorImages');
-    Route::resource('blog-pages', 'BlogPageController');
+    // Orders
+    Route::resource('orders', 'OrdersController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
 // Change password
