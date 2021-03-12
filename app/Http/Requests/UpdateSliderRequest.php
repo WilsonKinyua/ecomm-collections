@@ -17,19 +17,11 @@ class UpdateSliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'        => [
+            'title'     => [
                 'string',
                 'required',
             ],
-            'price_before' => [
-                'string',
-                'required',
-            ],
-            'price_after'  => [
-                'string',
-                'required',
-            ],
-            'item_name'    => [
+            'item_name' => [
                 'string',
                 'required',
             ],

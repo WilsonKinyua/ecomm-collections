@@ -4,17 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSlidersTable extends Migration
+class CreateCommentsTable extends Migration
 {
     public function up()
     {
-        Schema::create('sliders', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title');
-            $table->string('price_before');
-            $table->string('price_after');
-            $table->string('item_name');
+            $table->string('name');
+            $table->string('email')->nullable();
             $table->longText('description')->nullable();
+            $table->integer('product')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

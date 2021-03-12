@@ -41,38 +41,12 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.product.fields.price') }}
-                        </th>
-                        <td>
-                            {{ $product->price }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.product.fields.category') }}
                         </th>
                         <td>
                             @foreach($product->categories as $key => $category)
                                 <span class="label label-info">{{ $category->name }}</span>
                             @endforeach
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.product.fields.tag') }}
-                        </th>
-                        <td>
-                            @foreach($product->tags as $key => $tag)
-                                <span class="label label-info">{{ $tag->name }}</span>
-                            @endforeach
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.product.fields.status') }}
-                        </th>
-                        <td>
-                            <input type="checkbox" disabled="disabled" {{ $product->status ? 'checked' : '' }}>
                         </td>
                     </tr>
                     <tr>
@@ -109,6 +83,30 @@
                                     <img src="{{ $product->photo_2->getUrl('thumb') }}">
                                 </a>
                             @endif
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.product.fields.price_before') }}
+                        </th>
+                        <td>
+                            {{ $product->price_before }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.product.fields.price_now') }}
+                        </th>
+                        <td>
+                            {{ $product->price_now }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.product.fields.comment') }}
+                        </th>
+                        <td>
+                            {{ $product->comment }}
                         </td>
                     </tr>
                 </tbody>

@@ -27,4 +27,14 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Orders
     Route::apiResource('orders', 'OrdersApiController', ['except' => ['store', 'show', 'update', 'destroy']]);
+
+    // Homepages
+    Route::post('homepages/media', 'HomepageApiController@storeMedia')->name('homepages.storeMedia');
+    Route::apiResource('homepages', 'HomepageApiController');
+
+    // Comments
+    Route::apiResource('comments', 'CommentsApiController');
+
+    // Subscribedusers
+    Route::apiResource('subscribedusers', 'SubscribedusersApiController');
 });

@@ -31,16 +31,7 @@
                         {{ trans('cruds.product.fields.description') }}
                     </th>
                     <th>
-                        {{ trans('cruds.product.fields.price') }}
-                    </th>
-                    <th>
                         {{ trans('cruds.product.fields.category') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.product.fields.tag') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.product.fields.status') }}
                     </th>
                     <th>
                         {{ trans('cruds.product.fields.main_photo') }}
@@ -50,6 +41,15 @@
                     </th>
                     <th>
                         {{ trans('cruds.product.fields.photo_2') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.product.fields.price_before') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.product.fields.price_now') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.product.fields.comment') }}
                     </th>
                     <th>
                         &nbsp;
@@ -110,13 +110,13 @@
 { data: 'id', name: 'id' },
 { data: 'name', name: 'name' },
 { data: 'description', name: 'description' },
-{ data: 'price', name: 'price' },
 { data: 'category', name: 'categories.name' },
-{ data: 'tag', name: 'tags.name' },
-{ data: 'status', name: 'status' },
 { data: 'main_photo', name: 'main_photo', sortable: false, searchable: false },
 { data: 'photo_1', name: 'photo_1', sortable: false, searchable: false },
 { data: 'photo_2', name: 'photo_2', sortable: false, searchable: false },
+{ data: 'price_before', name: 'price_before' },
+{ data: 'price_now', name: 'price_now' },
+{ data: 'comment', name: 'comment' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

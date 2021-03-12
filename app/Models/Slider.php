@@ -28,10 +28,9 @@ class Slider extends Model implements HasMedia
 
     protected $fillable = [
         'title',
-        'price_before',
-        'price_after',
         'item_name',
         'description',
+        'price',
         'created_at',
         'updated_at',
         'deleted_at',

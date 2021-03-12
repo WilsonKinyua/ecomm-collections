@@ -4,16 +4,16 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateSlidersTable extends Migration
 {
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('sliders', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->nullable();
+            $table->string('title');
+            $table->string('item_name');
             $table->longText('description')->nullable();
             $table->decimal('price', 15, 2)->nullable();
-            $table->boolean('status')->default(0)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

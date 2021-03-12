@@ -17,23 +17,15 @@ class StoreSliderRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'        => [
+            'title'     => [
                 'string',
                 'required',
             ],
-            'price_before' => [
+            'item_name' => [
                 'string',
                 'required',
             ],
-            'price_after'  => [
-                'string',
-                'required',
-            ],
-            'item_name'    => [
-                'string',
-                'required',
-            ],
-            'photo'        => [
+            'photo'     => [
                 'required',
             ],
         ];

@@ -26,7 +26,7 @@
             </li>
         @endcan
         @can('product_management_access')
-            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/product-categories*") ? "c-show" : "" }} {{ request()->is("admin/product-tags*") ? "c-show" : "" }} {{ request()->is("admin/products*") ? "c-show" : "" }}">
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/product-categories*") ? "c-show" : "" }} {{ request()->is("admin/product-tags*") ? "c-show" : "" }} {{ request()->is("admin/products*") ? "c-show" : "" }} {{ request()->is("admin/comments*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-shopping-cart c-sidebar-nav-icon">
 
@@ -64,6 +64,16 @@
                             </a>
                         </li>
                     @endcan
+                    @can('comment_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.comments.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/comments") || request()->is("admin/comments/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-pen c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.comment.title') }}
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             </li>
         @endcan
@@ -77,18 +87,8 @@
                 </a>
             </li>
         @endcan
-        @can('contact_access')
-            <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.contacts.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/contacts") || request()->is("admin/contacts/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-phone c-sidebar-nav-icon">
-
-                    </i>
-                    {{ trans('cruds.contact.title') }}
-                </a>
-            </li>
-        @endcan
         @can('user_management_access')
-            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/permissions*") ? "c-show" : "" }} {{ request()->is("admin/roles*") ? "c-show" : "" }} {{ request()->is("admin/users*") ? "c-show" : "" }}">
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/permissions*") ? "c-show" : "" }} {{ request()->is("admin/roles*") ? "c-show" : "" }} {{ request()->is("admin/users*") ? "c-show" : "" }} {{ request()->is("admin/subscribedusers*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-users c-sidebar-nav-icon">
 
@@ -123,6 +123,38 @@
 
                                 </i>
                                 {{ trans('cruds.user.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('subscribeduser_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.subscribedusers.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/subscribedusers") || request()->is("admin/subscribedusers/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.subscribeduser.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
+            </li>
+        @endcan
+        @can('setting_access')
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/homepages*") ? "c-show" : "" }}">
+                <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.setting.title') }}
+                </a>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    @can('homepage_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.homepages.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/homepages") || request()->is("admin/homepages/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.homepage.title') }}
                             </a>
                         </li>
                     @endcan

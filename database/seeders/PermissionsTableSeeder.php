@@ -160,14 +160,74 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 38,
-                'title' => 'contact_access',
-            ],
-            [
-                'id'    => 39,
                 'title' => 'order_access',
             ],
             [
+                'id'    => 39,
+                'title' => 'setting_access',
+            ],
+            [
                 'id'    => 40,
+                'title' => 'homepage_create',
+            ],
+            [
+                'id'    => 41,
+                'title' => 'homepage_edit',
+            ],
+            [
+                'id'    => 42,
+                'title' => 'homepage_show',
+            ],
+            [
+                'id'    => 43,
+                'title' => 'homepage_delete',
+            ],
+            [
+                'id'    => 44,
+                'title' => 'homepage_access',
+            ],
+            [
+                'id'    => 45,
+                'title' => 'comment_create',
+            ],
+            [
+                'id'    => 46,
+                'title' => 'comment_edit',
+            ],
+            [
+                'id'    => 47,
+                'title' => 'comment_show',
+            ],
+            [
+                'id'    => 48,
+                'title' => 'comment_delete',
+            ],
+            [
+                'id'    => 49,
+                'title' => 'comment_access',
+            ],
+            [
+                'id'    => 50,
+                'title' => 'subscribeduser_create',
+            ],
+            [
+                'id'    => 51,
+                'title' => 'subscribeduser_edit',
+            ],
+            [
+                'id'    => 52,
+                'title' => 'subscribeduser_show',
+            ],
+            [
+                'id'    => 53,
+                'title' => 'subscribeduser_delete',
+            ],
+            [
+                'id'    => 54,
+                'title' => 'subscribeduser_access',
+            ],
+            [
+                'id'    => 55,
                 'title' => 'profile_password_edit',
             ],
         ];

@@ -9,7 +9,6 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
-use App\Models\ProductTag;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -25,7 +24,7 @@ class ProductController extends Controller
         abort_if(Gate::denies('product_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Product::with(['categories', 'tags'])->select(sprintf('%s.*', (new Product)->table));
+            $query = Product::with(['categories'])->select(sprintf('%s.*', (new Product)->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -55,9 +54,6 @@ class ProductController extends Controller
             $table->editColumn('description', function ($row) {
                 return $row->description ? $row->description : "";
             });
-            $table->editColumn('price', function ($row) {
-                return $row->price ? $row->price : "";
-            });
             $table->editColumn('category', function ($row) {
                 $labels = [];
 
@@ -66,18 +62,6 @@ class ProductController extends Controller
                 }
 
                 return implode(' ', $labels);
-            });
-            $table->editColumn('tag', function ($row) {
-                $labels = [];
-
-                foreach ($row->tags as $tag) {
-                    $labels[] = sprintf('<span class="label label-info label-many">%s</span>', $tag->name);
-                }
-
-                return implode(' ', $labels);
-            });
-            $table->editColumn('status', function ($row) {
-                return '<input type="checkbox" disabled ' . ($row->status ? 'checked' : null) . '>';
             });
             $table->editColumn('main_photo', function ($row) {
                 if ($photo = $row->main_photo) {
@@ -112,8 +96,17 @@ class ProductController extends Controller
 
                 return '';
             });
+            $table->editColumn('price_before', function ($row) {
+                return $row->price_before ? $row->price_before : "";
+            });
+            $table->editColumn('price_now', function ($row) {
+                return $row->price_now ? $row->price_now : "";
+            });
+            $table->editColumn('comment', function ($row) {
+                return $row->comment ? $row->comment : "";
+            });
 
-            $table->rawColumns(['actions', 'placeholder', 'category', 'tag', 'status', 'main_photo', 'photo_1', 'photo_2']);
+            $table->rawColumns(['actions', 'placeholder', 'category', 'main_photo', 'photo_1', 'photo_2']);
 
             return $table->make(true);
         }
@@ -127,16 +120,13 @@ class ProductController extends Controller
 
         $categories = ProductCategory::all()->pluck('name', 'id');
 
-        $tags = ProductTag::all()->pluck('name', 'id');
-
-        return view('admin.products.create', compact('categories', 'tags'));
+        return view('admin.products.create', compact('categories'));
     }
 
     public function store(StoreProductRequest $request)
     {
         $product = Product::create($request->all());
         $product->categories()->sync($request->input('categories', []));
-        $product->tags()->sync($request->input('tags', []));
 
         if ($request->input('main_photo', false)) {
             $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('main_photo'))))->toMediaCollection('main_photo');
@@ -163,18 +153,15 @@ class ProductController extends Controller
 
         $categories = ProductCategory::all()->pluck('name', 'id');
 
-        $tags = ProductTag::all()->pluck('name', 'id');
+        $product->load('categories');
 
-        $product->load('categories', 'tags');
-
-        return view('admin.products.edit', compact('categories', 'tags', 'product'));
+        return view('admin.products.edit', compact('categories', 'product'));
     }
 
     public function update(UpdateProductRequest $request, Product $product)
     {
         $product->update($request->all());
         $product->categories()->sync($request->input('categories', []));
-        $product->tags()->sync($request->input('tags', []));
 
         if ($request->input('main_photo', false)) {
             if (!$product->main_photo || $request->input('main_photo') !== $product->main_photo->file_name) {
@@ -219,7 +206,7 @@ class ProductController extends Controller
     {
         abort_if(Gate::denies('product_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $product->load('categories', 'tags');
+        $product->load('categories');
 
         return view('admin.products.show', compact('product'));
     }

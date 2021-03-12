@@ -31,8 +31,9 @@ class Product extends Model implements HasMedia
     protected $fillable = [
         'name',
         'description',
-        'price',
-        'status',
+        'price_before',
+        'price_now',
+        'comment',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -52,11 +53,6 @@ class Product extends Model implements HasMedia
     public function categories()
     {
         return $this->belongsToMany(ProductCategory::class);
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(ProductTag::class);
     }
 
     public function getMainPhotoAttribute()

@@ -1,6 +1,12 @@
 <?php
 
-Route::redirect('/', '/login');
+// Route::redirect('/', '/login');
+
+Route::get("/" , function() {
+    return view("welcome");
+});
+
+
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
@@ -47,11 +53,22 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('sliders/ckmedia', 'SlidersController@storeCKEditorImages')->name('sliders.storeCKEditorImages');
     Route::resource('sliders', 'SlidersController');
 
-    // Contacts
-    Route::resource('contacts', 'ContactController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
-
     // Orders
     Route::resource('orders', 'OrdersController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
+
+    // Homepages
+    Route::delete('homepages/destroy', 'HomepageController@massDestroy')->name('homepages.massDestroy');
+    Route::post('homepages/media', 'HomepageController@storeMedia')->name('homepages.storeMedia');
+    Route::post('homepages/ckmedia', 'HomepageController@storeCKEditorImages')->name('homepages.storeCKEditorImages');
+    Route::resource('homepages', 'HomepageController');
+
+    // Comments
+    Route::delete('comments/destroy', 'CommentsController@massDestroy')->name('comments.massDestroy');
+    Route::resource('comments', 'CommentsController');
+
+    // Subscribedusers
+    Route::delete('subscribedusers/destroy', 'SubscribedusersController@massDestroy')->name('subscribedusers.massDestroy');
+    Route::resource('subscribedusers', 'SubscribedusersController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
 // Change password

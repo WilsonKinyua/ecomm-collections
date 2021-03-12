@@ -29,16 +29,13 @@
                             {{ trans('cruds.slider.fields.title') }}
                         </th>
                         <th>
-                            {{ trans('cruds.slider.fields.price_before') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.slider.fields.price_after') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.slider.fields.item_name') }}
                         </th>
                         <th>
                             {{ trans('cruds.slider.fields.photo') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.slider.fields.price') }}
                         </th>
                         <th>
                             &nbsp;
@@ -58,12 +55,6 @@
                                 {{ $slider->title ?? '' }}
                             </td>
                             <td>
-                                {{ $slider->price_before ?? '' }}
-                            </td>
-                            <td>
-                                {{ $slider->price_after ?? '' }}
-                            </td>
-                            <td>
                                 {{ $slider->item_name ?? '' }}
                             </td>
                             <td>
@@ -72,6 +63,9 @@
                                         <img src="{{ $slider->photo->getUrl('thumb') }}">
                                     </a>
                                 @endif
+                            </td>
+                            <td>
+                                {{ $slider->price ?? '' }}
                             </td>
                             <td>
                                 @can('slider_show')

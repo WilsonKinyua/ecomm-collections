@@ -21,26 +21,6 @@
                 <span class="help-block">{{ trans('cruds.slider.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="price_before">{{ trans('cruds.slider.fields.price_before') }}</label>
-                <input class="form-control {{ $errors->has('price_before') ? 'is-invalid' : '' }}" type="text" name="price_before" id="price_before" value="{{ old('price_before', $slider->price_before) }}" required>
-                @if($errors->has('price_before'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('price_before') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.slider.fields.price_before_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label class="required" for="price_after">{{ trans('cruds.slider.fields.price_after') }}</label>
-                <input class="form-control {{ $errors->has('price_after') ? 'is-invalid' : '' }}" type="text" name="price_after" id="price_after" value="{{ old('price_after', $slider->price_after) }}" required>
-                @if($errors->has('price_after'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('price_after') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.slider.fields.price_after_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label class="required" for="item_name">{{ trans('cruds.slider.fields.item_name') }}</label>
                 <input class="form-control {{ $errors->has('item_name') ? 'is-invalid' : '' }}" type="text" name="item_name" id="item_name" value="{{ old('item_name', $slider->item_name) }}" required>
                 @if($errors->has('item_name'))
@@ -70,6 +50,16 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.slider.fields.photo_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="price">{{ trans('cruds.slider.fields.price') }}</label>
+                <input class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" type="number" name="price" id="price" value="{{ old('price', $slider->price) }}" step="0.01">
+                @if($errors->has('price'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('price') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.slider.fields.price_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
