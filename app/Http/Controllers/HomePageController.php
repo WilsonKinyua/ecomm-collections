@@ -18,11 +18,13 @@ class HomePageController extends Controller
         return view("product-details", compact("details","categories","site"));
     }
 
+    public function productCategory() {
 
-    public function productCategory($id) {
-        
+        $categories = ProductCategory::all();
+        $site       = Homepage::all();
+
+        return view("product-list",compact("categories","site"));
     }
-
     /**
      * Display a listing of the resource.
      *
