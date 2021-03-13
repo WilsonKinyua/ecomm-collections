@@ -50,37 +50,9 @@
             <div class="form-group">
                 <label class="required" for="main_photo">Product Image</label> <br>
                 <input type="file" name="photo" id="photo" required>
-                {{-- <div class="needsclick dropzone {{ $errors->has('main_photo') ? 'is-invalid' : '' }}" id="main_photo-dropzone">
-                </div>
-                @if($errors->has('main_photo'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('main_photo') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.product.fields.main_photo_helper') }}</span> --}}
+
             </div>
-            {{-- <div class="form-group">
-                <label for="photo_1">{{ trans('cruds.product.fields.photo_1') }}</label>
-                <div class="needsclick dropzone {{ $errors->has('photo_1') ? 'is-invalid' : '' }}" id="photo_1-dropzone">
-                </div>
-                @if($errors->has('photo_1'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('photo_1') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.product.fields.photo_1_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label for="photo_2">{{ trans('cruds.product.fields.photo_2') }}</label>
-                <div class="needsclick dropzone {{ $errors->has('photo_2') ? 'is-invalid' : '' }}" id="photo_2-dropzone">
-                </div>
-                @if($errors->has('photo_2'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('photo_2') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.product.fields.photo_2_helper') }}</span>
-            </div> --}}
+           
             <div class="form-group">
                 <label for="price_before">{{ trans('cruds.product.fields.price_before') }}</label>
                 <input class="form-control {{ $errors->has('price_before') ? 'is-invalid' : '' }}" type="number" name="price_before" id="price_before" value="{{ old('price_before', '') }}" step="0.01">

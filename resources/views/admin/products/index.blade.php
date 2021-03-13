@@ -37,12 +37,12 @@
                         <th>
                             {{ trans('cruds.product.fields.main_photo') }}
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('cruds.product.fields.photo_1') }}
                         </th>
                         <th>
                             {{ trans('cruds.product.fields.photo_2') }}
-                        </th>
+                        </th> --}}
                         <th>
                             {{ trans('cruds.product.fields.price_before') }}
                         </th>
@@ -78,13 +78,13 @@
                                 @endforeach
                             </td>
                             <td>
-                                @if($product->main_photo)
-                                    <a href="{{ $product->main_photo->getUrl() }}" target="_blank" style="display: inline-block">
-                                        <img src="{{ $product->main_photo->getUrl('thumb') }}">
+                                @if($product->photo)
+                                    <a href="{{ asset($product->photo) }}" target="_blank" style="display: inline-block">
+                                        <img style="width: 50px; height: 50px" src="{{ asset($product->photo) }}">
                                     </a>
                                 @endif
                             </td>
-                            <td>
+                            {{-- <td>
                                 @if($product->photo_1)
                                     <a href="{{ $product->photo_1->getUrl() }}" target="_blank" style="display: inline-block">
                                         <img src="{{ $product->photo_1->getUrl('thumb') }}">
@@ -97,7 +97,7 @@
                                         <img src="{{ $product->photo_2->getUrl('thumb') }}">
                                     </a>
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ $product->price_before ?? '' }}
                             </td>

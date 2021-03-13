@@ -27,7 +27,7 @@ class StoreProductRequest extends FormRequest
             'categories'   => [
                 'array',
             ],
-            'main_photo'   => [
+            'photo'   => [
                 'required',
             ],
             'price_now'    => [

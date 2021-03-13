@@ -5,7 +5,7 @@
 Route::get("/","HomePageController@index");
 
 // Display product details
-Route::get("/product/{id}","HomePageController@productDetails")->name("product.details");
+Route::get("/product/{id}/product-details","HomePageController@productDetails")->name("product.details");
 
 Route::get('/home', function () {
     if (session('status')) {

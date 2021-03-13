@@ -9,7 +9,7 @@
                     <div class="product-gallery pg-vertical">
                         <div class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1">
                             <figure class="product-image">
-                                <img src="{{ asset('assets/images/product/product-1-580x652.jpg')}}"
+                                <img src="{{ asset($details->photo)}}"
                                     data-zoom-image="images/product/product-1-800x900.jpg"
                                     alt="Women's Brown Leather Backpacks" width="800" height="900">
                             </figure>

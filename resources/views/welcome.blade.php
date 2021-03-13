@@ -59,7 +59,7 @@
                                            <div class="product product-list-sm">
                                             <figure class="product-media">
                                                 <a href="{{ route('product.details', $item->id)}}">
-                                                    <img src="{{ asset('assets/images/demos/demo3/products/10.jpg')}}"
+                                                    <img src="{{ asset($item->photo)}}"
                                                         alt="product" width="100" height="100">
                                                 </a>
                                             </figure>
@@ -238,7 +238,7 @@
                             <div class="product text-center">
                                 <figure class="product-media">
                                     <a href="{{ route('product.details', $product->id)}}">
-                                        <img src="{{ asset('assets/images/demos/demo3/products/1.jpg')}}" alt="product"
+                                        <img src="{{ asset($product->photo)}}" alt="product"
                                             width="280" height="315">
                                     </a>
                                     <div class="product-action">
@@ -301,7 +301,7 @@
                             <div class="product text-center">
                                 <figure class="product-media">
                                     <a href="{{ route('product.details', $product->id)}}">
-                                        <img src="{{ asset('assets/images/demos/demo3/products/10.jpg')}}"
+                                        <img src="{{ asset($product->photo)}}"
                                         alt="product" width="100" height="100">
                                     </a>
                                     <div class="product-action">

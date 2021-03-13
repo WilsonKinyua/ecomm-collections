@@ -38,24 +38,41 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request)
     {
-        $product = Product::create($request->all());
+        if($file = $request->file("photo")) {
+
+            $name = time() . $file->getClientOriginalName();
+            $name = $file->move("uploads/images/products", $name);
+            // $data['file'] = $name;
+        }
+
+        $data = [
+            "name" => $request->name,
+            "description" => $request->description,
+            "price_before" => $request->price_before,
+            "price_now" => $request->price_now,
+            "comment" => $request->comment,
+            "photo" => $name
+        ];
+
+        $product = Product::create($data);
+
         $product->categories()->sync($request->input('categories', []));
 
-        if ($request->input('main_photo', false)) {
-            $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('main_photo'))))->toMediaCollection('main_photo');
-        }
+        // if ($request->input('main_photo', false)) {
+        //     $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('main_photo'))))->toMediaCollection('main_photo');
+        // }
 
-        if ($request->input('photo_1', false)) {
-            $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('photo_1'))))->toMediaCollection('photo_1');
-        }
+        // if ($request->input('photo_1', false)) {
+        //     $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('photo_1'))))->toMediaCollection('photo_1');
+        // }
 
-        if ($request->input('photo_2', false)) {
-            $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('photo_2'))))->toMediaCollection('photo_2');
-        }
+        // if ($request->input('photo_2', false)) {
+        //     $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('photo_2'))))->toMediaCollection('photo_2');
+        // }
 
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $product->id]);
-        }
+        // if ($media = $request->input('ck-media', false)) {
+        //     Media::whereIn('id', $media)->update(['model_id' => $product->id]);
+        // }
 
         return redirect()->route('admin.products.index');
     }
@@ -73,44 +90,23 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, Product $product)
     {
-        $product->update($request->all());
+        if($file = $request->file("photo")) {
+            $name = time() . $file->getClientOriginalName();
+            $name = $file->move("uploads/images/products", $name);
+        }
+
+        $data = [
+            "name" => $request->name,
+            "description" => $request->description,
+            "price_before" => $request->price_before,
+            "price_now" => $request->price_now,
+            "comment" => $request->comment,
+            "photo" => $name
+        ];
+
+        $product->update($data);
+
         $product->categories()->sync($request->input('categories', []));
-
-        if ($request->input('main_photo', false)) {
-            if (!$product->main_photo || $request->input('main_photo') !== $product->main_photo->file_name) {
-                if ($product->main_photo) {
-                    $product->main_photo->delete();
-                }
-
-                $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('main_photo'))))->toMediaCollection('main_photo');
-            }
-        } elseif ($product->main_photo) {
-            $product->main_photo->delete();
-        }
-
-        if ($request->input('photo_1', false)) {
-            if (!$product->photo_1 || $request->input('photo_1') !== $product->photo_1->file_name) {
-                if ($product->photo_1) {
-                    $product->photo_1->delete();
-                }
-
-                $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('photo_1'))))->toMediaCollection('photo_1');
-            }
-        } elseif ($product->photo_1) {
-            $product->photo_1->delete();
-        }
-
-        if ($request->input('photo_2', false)) {
-            if (!$product->photo_2 || $request->input('photo_2') !== $product->photo_2->file_name) {
-                if ($product->photo_2) {
-                    $product->photo_2->delete();
-                }
-
-                $product->addMedia(storage_path('tmp/uploads/' . basename($request->input('photo_2'))))->toMediaCollection('photo_2');
-            }
-        } elseif ($product->photo_2) {
-            $product->photo_2->delete();
-        }
 
         return redirect()->route('admin.products.index');
     }

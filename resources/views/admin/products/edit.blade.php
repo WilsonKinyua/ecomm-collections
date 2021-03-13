@@ -49,38 +49,11 @@
                 <span class="help-block">{{ trans('cruds.product.fields.category_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="main_photo">{{ trans('cruds.product.fields.main_photo') }}</label>
-                <div class="needsclick dropzone {{ $errors->has('main_photo') ? 'is-invalid' : '' }}" id="main_photo-dropzone">
-                </div>
-                @if($errors->has('main_photo'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('main_photo') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.product.fields.main_photo_helper') }}</span>
+                <label class="required" for="main_photo">Product Image</label> <br>
+                <input type="file" name="photo" id="photo" required>
+
             </div>
-            <div class="form-group">
-                <label for="photo_1">{{ trans('cruds.product.fields.photo_1') }}</label>
-                <div class="needsclick dropzone {{ $errors->has('photo_1') ? 'is-invalid' : '' }}" id="photo_1-dropzone">
-                </div>
-                @if($errors->has('photo_1'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('photo_1') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.product.fields.photo_1_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label for="photo_2">{{ trans('cruds.product.fields.photo_2') }}</label>
-                <div class="needsclick dropzone {{ $errors->has('photo_2') ? 'is-invalid' : '' }}" id="photo_2-dropzone">
-                </div>
-                @if($errors->has('photo_2'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('photo_2') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.product.fields.photo_2_helper') }}</span>
-            </div>
+
             <div class="form-group">
                 <label for="price_before">{{ trans('cruds.product.fields.price_before') }}</label>
                 <input class="form-control {{ $errors->has('price_before') ? 'is-invalid' : '' }}" type="number" name="price_before" id="price_before" value="{{ old('price_before', $product->price_before) }}" step="0.01">
@@ -101,7 +74,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.product.fields.price_now_helper') }}</span>
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="comment">{{ trans('cruds.product.fields.comment') }}</label>
                 <input class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }}" type="number" name="comment" id="comment" value="{{ old('comment', $product->comment) }}" step="1">
                 @if($errors->has('comment'))
@@ -110,7 +83,7 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.product.fields.comment_helper') }}</span>
-            </div>
+            </div> --}}
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
