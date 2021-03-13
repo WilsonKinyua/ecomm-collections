@@ -2,10 +2,10 @@
 
 // Route::redirect('/', '/login');
 
-Route::get("/" , function() {
-    return view("welcome");
-});
+Route::get("/","HomePageController@index");
 
+// Display product details
+Route::get("/product/{id}","HomePageController@productDetails")->name("product.details");
 
 Route::get('/home', function () {
     if (session('status')) {

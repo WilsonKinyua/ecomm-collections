@@ -15,6 +15,7 @@ class CreateProductsTable extends Migration
             $table->decimal('price_before', 15, 2)->nullable();
             $table->decimal('price_now', 15, 2)->nullable();
             $table->integer('comment')->nullable();
+            $table->text("photo")->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

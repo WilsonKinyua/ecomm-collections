@@ -13,105 +13,18 @@ use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
-use Yajra\DataTables\Facades\DataTables;
 
 class ProductController extends Controller
 {
     use MediaUploadingTrait;
 
-    public function index(Request $request)
+    public function index()
     {
         abort_if(Gate::denies('product_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        if ($request->ajax()) {
-            $query = Product::with(['categories'])->select(sprintf('%s.*', (new Product)->table));
-            $table = Datatables::of($query);
+        $products = Product::with(['categories', 'media'])->get();
 
-            $table->addColumn('placeholder', '&nbsp;');
-            $table->addColumn('actions', '&nbsp;');
-
-            $table->editColumn('actions', function ($row) {
-                $viewGate      = 'product_show';
-                $editGate      = 'product_edit';
-                $deleteGate    = 'product_delete';
-                $crudRoutePart = 'products';
-
-                return view('partials.datatablesActions', compact(
-                    'viewGate',
-                    'editGate',
-                    'deleteGate',
-                    'crudRoutePart',
-                    'row'
-                ));
-            });
-
-            $table->editColumn('id', function ($row) {
-                return $row->id ? $row->id : "";
-            });
-            $table->editColumn('name', function ($row) {
-                return $row->name ? $row->name : "";
-            });
-            $table->editColumn('description', function ($row) {
-                return $row->description ? $row->description : "";
-            });
-            $table->editColumn('category', function ($row) {
-                $labels = [];
-
-                foreach ($row->categories as $category) {
-                    $labels[] = sprintf('<span class="label label-info label-many">%s</span>', $category->name);
-                }
-
-                return implode(' ', $labels);
-            });
-            $table->editColumn('main_photo', function ($row) {
-                if ($photo = $row->main_photo) {
-                    return sprintf(
-                        '<a href="%s" target="_blank"><img src="%s" width="50px" height="50px"></a>',
-                        $photo->url,
-                        $photo->thumbnail
-                    );
-                }
-
-                return '';
-            });
-            $table->editColumn('photo_1', function ($row) {
-                if ($photo = $row->photo_1) {
-                    return sprintf(
-                        '<a href="%s" target="_blank"><img src="%s" width="50px" height="50px"></a>',
-                        $photo->url,
-                        $photo->thumbnail
-                    );
-                }
-
-                return '';
-            });
-            $table->editColumn('photo_2', function ($row) {
-                if ($photo = $row->photo_2) {
-                    return sprintf(
-                        '<a href="%s" target="_blank"><img src="%s" width="50px" height="50px"></a>',
-                        $photo->url,
-                        $photo->thumbnail
-                    );
-                }
-
-                return '';
-            });
-            $table->editColumn('price_before', function ($row) {
-                return $row->price_before ? $row->price_before : "";
-            });
-            $table->editColumn('price_now', function ($row) {
-                return $row->price_now ? $row->price_now : "";
-            });
-            $table->editColumn('comment', function ($row) {
-                return $row->comment ? $row->comment : "";
-            });
-
-            $table->rawColumns(['actions', 'placeholder', 'category', 'main_photo', 'photo_1', 'photo_2']);
-
-            return $table->make(true);
-        }
-
-        return view('admin.products.index');
+        return view('admin.products.index', compact('products'));
     }
 
     public function create()
