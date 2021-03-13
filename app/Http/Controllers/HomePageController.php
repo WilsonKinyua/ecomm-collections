@@ -19,6 +19,10 @@ class HomePageController extends Controller
     }
 
 
+    public function productCategory($id) {
+        
+    }
+
     /**
      * Display a listing of the resource.
      *

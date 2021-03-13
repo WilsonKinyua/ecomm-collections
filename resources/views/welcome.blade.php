@@ -18,7 +18,7 @@
 
                                @foreach ($categories as $item)
                                 <li>
-                                    <a href="{{ $item->id }}">{{ $item->name }}</a>
+                                    <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
                                 </li>
                                 {{-- <a href="demo3-shop.html"><i class="d-icon-camera1"></i>Electronics</a> --}}
                                @endforeach
@@ -65,17 +65,18 @@
                                             </figure>
                                             <div class="product-details">
                                                 <h3 class="product-name">
-                                                    <a href="{{ route('product.details', $item->id)}}">Fashion Hiking Hat</a>
+                                                    <a href="{{ route('product.details', $item->id)}}">{{ $item->name }}</a>
                                                 </h3>
+
                                                 <div class="product-price">
-                                                    <span class="price">$199.00</span>
+                                                    <span class="price">Ksh {{ $item->price_now }}</span>
                                                 </div>
-                                                <div class="ratings-container">
+                                                {{-- <div class="ratings-container">
                                                     <div class="ratings-full">
                                                         <span class="ratings" style="width:100%"></span>
                                                         <span class="tooltiptext tooltip-top"></span>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                            @endforeach
@@ -252,7 +253,7 @@
                                 <div class="product-details">
                                     <div class="product-cat">
                                         @foreach($product->categories as $key => $item)
-                                            <a href="/">{{ $item->name }}</a>
+                                            <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
                                         @endforeach
                                     </div>
                                     <h3 class="product-name">
@@ -315,7 +316,7 @@
                                 <div class="product-details">
                                     <div class="product-cat">
                                         @foreach($product->categories as $key => $item)
-                                            <a href="/">{{ $item->name }}</a>
+                                            <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
                                         @endforeach
                                     </div>
                                     <h3 class="product-name">

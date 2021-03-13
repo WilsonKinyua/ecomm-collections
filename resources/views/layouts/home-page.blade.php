@@ -97,7 +97,7 @@
                         <nav class="main-nav">
                             <ul class="menu">
                                 <li class="active">
-                                    <a href="demo3.html">Home</a>
+                                    <a href="/">Home</a>
                                 </li>
                             </ul>
                         </nav>
@@ -204,7 +204,7 @@
                             <nav class="main-nav">
                                 <ul class="menu">
                                     <li class="active">
-                                        <a href="demo3.html">Home</a>
+                                        <a href="/">Home</a>
                                     </li>
                                     {{-- <li>
                                         <a href="#">About Us</a>
@@ -219,7 +219,7 @@
                                         <a href="#">Limited time offer</a>
                                     </li> --}}
                                     <li>
-                                        <a href="/">Buy {{ trans('panel.site_title') }}!</a>
+                                        <a href="/">Buy at {{ trans('panel.site_title') }}!</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -407,7 +407,7 @@
     </div>
     <!-- Sticky Footer -->
     <div class="sticky-footer sticky-content fix-bottom">
-        <a href="demo3.html" class="sticky-link active">
+        <a href="/" class="sticky-link active">
             <i class="d-icon-home"></i>
             <span>Home</span>
         </a>
