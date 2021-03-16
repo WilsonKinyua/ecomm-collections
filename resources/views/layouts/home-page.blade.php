@@ -34,7 +34,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/owl-carousel/owl.carousel.min.css')}}">
 
     <!-- Main CSS File -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/demo3.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/new-styles.css')}}">
+
 </head>
 
 <body class="home">
@@ -103,7 +105,7 @@
                         </nav>
                     </div>
                     <div class="header-right">
-                        <a class="login" href="ajax/login.html">
+                        <a class="" href="{{ route('auth.account') }}">
                             <i class="d-icon-user"></i>
                             <span>Login</span>
                         </a>

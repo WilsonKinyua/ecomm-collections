@@ -60,7 +60,7 @@
                                             <figure class="product-media">
                                                 <a href="{{ route('product.details', $item->id)}}">
                                                     <img src="{{ asset($item->photo)}}"
-                                                        alt="product" width="100" height="100">
+                                                        alt="product" style="width: 200px; height: 200px">
                                                 </a>
                                             </figure>
                                             <div class="product-details">
@@ -303,7 +303,7 @@
                                 <figure class="product-media">
                                     <a href="{{ route('product.details', $product->id)}}">
                                         <img src="{{ asset($product->photo)}}"
-                                        alt="product" width="100" height="100">
+                                        alt="product" style="width: 200px; height: 200px">
                                     </a>
                                     <div class="product-action">
                                         <a href="" class="btn-product"

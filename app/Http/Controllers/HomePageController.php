@@ -5,7 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Homepage;
 use App\Models\Product;
 use App\Models\ProductCategory;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 class HomePageController extends Controller
 {
@@ -18,13 +23,84 @@ class HomePageController extends Controller
         return view("product-details", compact("details","categories","site"));
     }
 
-    public function productCategory() {
+    public function productCategory($id) {
+
+        $categories = ProductCategory::all();
+        $site       = Homepage::all();
+        $category_name = ProductCategory::findOrFail($id);
+        $productscategory = ProductCategory::with("products")->findOrFail($id);
+
+        $products = $productscategory->products;
+
+        // print_r(json_encode($products));
+
+        // print_r(json_encode($productscategory));
+
+        return view("product-list",compact("categories","site","products","category_name"));
+    }
+
+    public function authUserLogin() {
+
+    // $rules = array(
+    //     'email' => 'required|email',
+    //     'password' => 'required|alphaNum|min:8');
+
+    //     $validator = Validator::make(Input::all() , $rules);
+    //     // if the validator fails, redirect back to the form
+    //     if ($validator->fails()) {
+
+    //       return Redirect::to('login')->withErrors($validator) // send back all errors to the login form
+    //       ->withInput(Input::except('password')); // send back the input (not the password) so that we can repopulate the form
+    //       } else {
+    //       // create our user data for the authentication
+    //       $userdata = array(
+    //         'email' => Input::get('email') ,
+    //         'password' => Input::get('password')
+    //       );
+    //       // attempt to do the login
+    //       if (Auth::attempt($userdata)) {
+    //         // validation successful
+    //         // do whatever you want on success
+    //         } else {
+    //         // validation not successful, send back to form
+    //         return Redirect::to('checklogin');
+    //         }
+    //       }
 
         $categories = ProductCategory::all();
         $site       = Homepage::all();
 
-        return view("product-list",compact("categories","site"));
+        return view("auth-login",compact("categories","site"));
     }
+
+    public function authUserRegister() {
+
+
+        $categories = ProductCategory::all();
+        $site       = Homepage::all();
+
+        return view("auth-register",compact("categories","site"));
+    }
+
+    public function register(Request $request) {
+
+         User::create([
+            'name'     => $request->name,
+            'email'    => $request->email,
+            'address'    => $request->address,
+            'phone'    => $request->phone,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return view("auth-login");
+    }
+
+
+    // public function registerUser() {
+
+    // }
+
+
     /**
      * Display a listing of the resource.
      *

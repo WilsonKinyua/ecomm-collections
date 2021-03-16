@@ -10,6 +10,16 @@ Route::get("/product/{id}/product-details","HomePageController@productDetails")-
 // Filter products by category id
 Route::get("/product-list/category/{id}","HomePageController@productCategory")->name("product.category");
 
+// view for Register or login user
+Route::get("account","HomePageController@authUserLogin")->name("auth.account");
+
+Route::get("account/register","HomePageController@authUserRegister")->name("auth.register.user");
+Route::post("account/create/","HomePageController@register")->name("auth.register");
+
+// create account
+// Route::get("account/register","HomePageController@registerUser")->name("auth.register");
+
+
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
