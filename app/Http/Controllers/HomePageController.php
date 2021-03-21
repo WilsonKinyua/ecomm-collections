@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Homepage;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -21,7 +22,11 @@ class HomePageController extends Controller
         $details = Product::findOrFail($id);
         $categories = ProductCategory::all();
         $site       = Homepage::all();
-        return view("product-details", compact("details","categories","site"));
+
+        $comments = Comment::where("product", "=", $id)->get();
+
+        // print_r(json_encode($comments));
+        return view("product-details", compact("details","categories","site","comments"));
     }
 
     // view all products

@@ -104,72 +104,65 @@
 
                         <div class="comments mb-6">
                             <ul>
+                              @foreach ($comments as $comment)
                                 <li>
                                     <div class="comment">
-                                        <figure class="comment-media">
+                                        {{-- <figure class="comment-media">
                                             <a href="#">
                                                 <img src="{{ asset('assets/images/blog/comments/1.jpg')}}" alt="avatar">
                                             </a>
-                                        </figure>
+                                        </figure> --}}
                                         <div class="comment-body">
-                                            <div class="comment-rating ratings-container mb-0">
+                                            {{-- <div class="comment-rating ratings-container mb-0">
                                                 <div class="ratings-full">
                                                     <span class="ratings" style="width:80%"></span>
                                                     <span class="tooltiptext tooltip-top">4.00</span>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="comment-user">
-                                                <h4><a href="#">Jimmy Pearson</a></h4>
-                                                <span class="comment-date">November 9, 2018 at 2:19 pm</span>
+                                                <h4><a href="#">{{ $comment->name }}</a></h4>
+                                                <span class="comment-date">
+
+                                                    {{ $comment->created_at }}
+                                                </span>
                                             </div>
 
                                             <div class="comment-content">
-                                                <p>Sed pretium, ligula sollicitudin laoreet viverra, tortor
-                                                    libero sodales leo, eget blandit nunc tortor eu nibh. Nullam
-                                                    mollis. Ut justo. Suspendisse potenti.
-                                                    Sed egestas, ante et vulputate volutpat, eros pede semper
-                                                    est, vitae luctus metus libero eu augue. Morbi purus libero,
-                                                    faucibus adipiscing, commodo quis, avida id, est. Sed
-                                                    lectus. Praesent elementum hendrerit tortor. Sed semper
-                                                    lorem at felis. Vestibulum volutpat.</p>
+                                                <p>{{ $comment->description }}</p>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="comment">
-                                        <figure class="comment-media">
-                                            <a href="#">
-                                                <img src="{{ asset('assets/images/blog/comments/3.jpg')}}" alt="avatar">
-                                            </a>
-                                        </figure>
+                            @endforeach
 
-                                        <div class="comment-body">
-                                            <div class="comment-rating ratings-container mb-0">
-                                                <div class="ratings-full">
-                                                    <span class="ratings" style="width:80%"></span>
-                                                    <span class="tooltiptext tooltip-top">4.00</span>
-                                                </div>
-                                            </div>
-                                            <div class="comment-user">
-                                                <h4><a href="#">Johnathan Castillo</a></h4>
-                                                <span class="comment-date">November 9, 2018 at 2:19 pm</span>
-                                            </div>
-
-                                            <div class="comment-content">
-                                                <p>Vestibulum volutpat, lacus a ultrices sagittis, mi neque
-                                                    euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus
-                                                    pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                         <!-- End Comments -->
                         <div class="reply">
                             <div class="title-wrapper text-left">
                                 <h3 class="title title-simple text-left text-normal">Add a Review</h3>
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                     @if(session('message'))
+                                     <div class="row mb-2">
+                                         <div class="col-lg-12">
+                                             <div style="color: white" class="alert alert-success" role="alert">{{ session('message') }}</div>
+                                         </div>
+                                     </div>
+                                     @endif
+                                     @if($errors->count() > 0)
+                                         <div class="alert alert-danger">
+                                             <ul class="list-unstyled">
+                                                 @foreach($errors->all() as $error)
+                                                     <li>{{ $error }}</li>
+                                                 @endforeach
+                                             </ul>
+                                         </div>
+                                     @endif
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
                                 <p>Your email address will not be published. Required fields are marked *</p>
                             </div>
                             <div class="rating-form">
@@ -182,26 +175,29 @@
                                     <a class="star-5" href="#">5</a>
                                 </span> --}}
 
-                                <select name="rating" id="rating" required="" style="display: none;">
+                                {{-- <select name="rating" id="rating" required="" style="display: none;">
                                     <option value="">Rate…</option>
                                     <option value="5">Perfect</option>
                                     <option value="4">Good</option>
                                     <option value="3">Average</option>
                                     <option value="2">Not that bad</option>
                                     <option value="1">Very poor</option>
-                                </select>
+                                </select> --}}
                             </div>
-                            <form action="#">
-                                <textarea id="reply-message" cols="30" rows="4" class="form-control mb-4"
+                            <form method="POST" action="{{ route("admin.comments.store") }}" enctype="multipart/form-data">
+                                @csrf
+                                <textarea id="reply-message" cols="30" rows="4" name="description" class="form-control mb-4"
                                     placeholder="Comment *" required></textarea>
+                                    <input type="hidden" name="product" value="{{ $details->id }}">
+                                    <input type="hidden" name="product_name" value="{{ $details->name }}">
                                 <div class="row">
                                     <div class="col-md-6 mb-5">
                                         <input type="text" class="form-control" id="reply-name"
-                                            name="reply-name" placeholder="Name *" required />
+                                            name="name" placeholder="Name *" required />
                                     </div>
                                     <div class="col-md-6 mb-5">
                                         <input type="email" class="form-control" id="reply-email"
-                                            name="reply-email" placeholder="Email *" required />
+                                            name="email" placeholder="Email *" required />
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-md">Submit<i

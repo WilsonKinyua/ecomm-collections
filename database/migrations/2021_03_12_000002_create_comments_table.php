@@ -14,6 +14,7 @@ class CreateCommentsTable extends Migration
             $table->string('email')->nullable();
             $table->longText('description')->nullable();
             $table->integer('product')->nullable();
+            $table->string('product_name')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

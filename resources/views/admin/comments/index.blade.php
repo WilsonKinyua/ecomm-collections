@@ -61,7 +61,7 @@
                                 {{ $comment->description ?? '' }}
                             </td>
                             <td>
-                                {{ $comment->product ?? '' }}
+                                {{ $comment->product_name ?? '' }}
                             </td>
                             <td>
                                 @can('comment_show')

@@ -33,7 +33,7 @@ class CommentsController extends Controller
     {
         $comment = Comment::create($request->all());
 
-        return redirect()->route('admin.comments.index');
+        return redirect()->back()->with('message', 'Review added successfully');
     }
 
     public function edit(Comment $comment)

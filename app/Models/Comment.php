@@ -22,6 +22,7 @@ class Comment extends Model
     protected $fillable = [
         'name',
         'email',
+        'product_name',
         'description',
         'product',
         'created_at',
