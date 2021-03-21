@@ -25,6 +25,9 @@ Route::get("/products", "HomePageController@allProducts")->name("products.produc
 // all categories
 Route::get("/categories","HomePageController@allCategories")->name("categories.categories");
 
+// search
+Route::any('/search', "HomePageController@search")->name('search.search');
+
 Route::get("cart","HomePageController@cart")->name("cart.cart");
 Route::get("cart/add/{id}","HomePageController@addCart")->name("cart.add");
 Route::post("cart/update","HomePageController@updateCart")->name("cart.update");

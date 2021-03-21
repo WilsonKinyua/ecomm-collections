@@ -80,17 +80,18 @@
                         </a>
                         <!-- End of Logo -->
                         <div class="header-search hs-expanded">
-                            <form action="#" method="get" class="input-wrapper">
-                                <div class="select-box">
+                            <form action="{{ route('search.search') }}" method="post" class="input-wrapper">
+                                @csrf
+                                {{-- <div class="select-box">
                                     <select id="category" name="category">
                                         <option value="">All Categories</option>
                                        @foreach ($categories as $cat)
                                        <option value="{{ $cat->id }}">- {{ $cat->name }}</option>
                                        @endforeach
                                     </select>
-                                </div>
-                                <input type="text" class="form-control" name="search" id="search"
-                                    placeholder="Search your keyword..." required="">
+                                </div> --}}
+                                <input type="text" class="form-control" name="q" id="search"
+                                    placeholder="Search for product..." required="">
                                 <button class="btn btn-sm btn-search" type="submit"><i
                                         class="d-icon-search"></i></button>
                             </form>
@@ -187,9 +188,10 @@
                             <a href="#" class="search-toggle">
                                 <i class="d-icon-search"></i>
                             </a>
-                            <form action="#" class="input-wrapper">
-                                <input type="text" class="form-control" name="search" autocomplete="off"
-                                    placeholder="Search your keyword..." required />
+                            <form action="{{ route('search.search') }}" method="POST" class="input-wrapper">
+                                @csrf
+                                <input type="text" class="form-control" name="q" autocomplete="off"
+                                    placeholder="Search products..." required />
                                 <button class="btn btn-search" type="submit">
                                     <i class="d-icon-search"></i>
                                 </button>
@@ -504,9 +506,10 @@
         <a class="mobile-menu-close" href="#"><i class="d-icon-times"></i></a>
         <!-- End of CloseButton -->
         <div class="mobile-menu-container scrollable">
-            <form action="#" class="input-wrapper">
-                <input type="text" class="form-control" name="search" autocomplete="off"
-                    placeholder="Search your keyword..." required />
+            <form action="{{ route('search.search') }}" method="POST" class="input-wrapper">
+                @csrf
+                <input type="text" class="form-control" name="q" autocomplete="off"
+                    placeholder="Search for products..." required />
                 <button class="btn btn-search" type="submit">
                     <i class="d-icon-search"></i>
                 </button>

@@ -62,6 +62,28 @@ class HomePageController extends Controller
         return view("product-list",compact("categories","site","products","category_name"));
     }
 
+    // search
+
+    public function search(Request $request) {
+
+        // Get the search value from the request
+        $search = $request->input('q');
+
+        // Search in the name and description columns from the products table
+        $products = Product::query()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('description', 'LIKE', "%{$search}%")
+            ->get();
+
+        $categories = ProductCategory::all();
+        $site       = Homepage::all();
+
+        // Return the search view with the resluts compacted
+        return view('search', compact("categories","site",'products'));
+
+    }
+
+
     public function authUserLogin() {
 
     // $rules = array(
