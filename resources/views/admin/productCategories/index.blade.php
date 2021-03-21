@@ -28,12 +28,12 @@
                         <th>
                             {{ trans('cruds.productCategory.fields.name') }}
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('cruds.productCategory.fields.description') }}
                         </th>
                         <th>
                             {{ trans('cruds.productCategory.fields.photo') }}
-                        </th>
+                        </th> --}}
                         <th>
                             &nbsp;
                         </th>
@@ -51,7 +51,7 @@
                             <td>
                                 {{ $productCategory->name ?? '' }}
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ $productCategory->description ?? '' }}
                             </td>
                             <td>
@@ -60,7 +60,7 @@
                                         <img src="{{ $productCategory->photo->getUrl('thumb') }}">
                                     </a>
                                 @endif
-                            </td>
+                            </td> --}}
                             <td>
                                 @can('product_category_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.product-categories.show', $productCategory->id) }}">
@@ -74,13 +74,13 @@
                                     </a>
                                 @endcan
 
-                                @can('product_category_delete')
+                                {{-- @can('product_category_delete')
                                     <form action="{{ route('admin.product-categories.destroy', $productCategory->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
                                     </form>
-                                @endcan
+                                @endcan --}}
 
                             </td>
 
@@ -100,39 +100,39 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('product_category_delete')
-  let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
-  let deleteButton = {
-    text: deleteButtonTrans,
-    url: "{{ route('admin.product-categories.massDestroy') }}",
-    className: 'btn-danger',
-    action: function (e, dt, node, config) {
-      var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
-          return $(entry).data('entry-id')
-      });
+// @can('product_category_delete')
+//   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
+//   let deleteButton = {
+//     text: deleteButtonTrans,
+//     url: "{{ route('admin.product-categories.massDestroy') }}",
+//     className: 'btn-danger',
+//     action: function (e, dt, node, config) {
+//       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
+//           return $(entry).data('entry-id')
+//       });
 
-      if (ids.length === 0) {
-        alert('{{ trans('global.datatables.zero_selected') }}')
+//       if (ids.length === 0) {
+//         alert('{{ trans('global.datatables.zero_selected') }}')
 
-        return
-      }
+//         return
+//       }
 
-      if (confirm('{{ trans('global.areYouSure') }}')) {
-        $.ajax({
-          headers: {'x-csrf-token': _token},
-          method: 'POST',
-          url: config.url,
-          data: { ids: ids, _method: 'DELETE' }})
-          .done(function () { location.reload() })
-      }
-    }
-  }
-  dtButtons.push(deleteButton)
-@endcan
+//       if (confirm('{{ trans('global.areYouSure') }}')) {
+//         $.ajax({
+//           headers: {'x-csrf-token': _token},
+//           method: 'POST',
+//           url: config.url,
+//           data: { ids: ids, _method: 'DELETE' }})
+//           .done(function () { location.reload() })
+//       }
+//     }
+//   }
+//   dtButtons.push(deleteButton)
+// @endcan
 
   $.extend(true, $.fn.dataTable.defaults, {
     orderCellsTop: true,
-    order: [[ 1, 'desc' ]],
+    order: [[ 1, 'asc' ]],
     pageLength: 100,
   });
   let table = $('.datatable-ProductCategory:not(.ajaxTable)').DataTable({ buttons: dtButtons })
@@ -140,7 +140,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

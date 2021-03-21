@@ -106,13 +106,13 @@
                         </nav>
                     </div>
                     <div class="header-right">
-                        <a class="" href="{{ route('auth.account') }}">
+                        {{-- <a class="" href="{{ route('auth.account') }}">
                             <i class="d-icon-user"></i>
                             <span>Login</span>
-                        </a>
+                        </a> --}}
                         <!-- End of Login -->
                         <span class="divider"></span>
-                        <div class="dropdown cart-dropdown">
+                        {{-- <div class="dropdown cart-dropdown">
                             <a href="#" class="cart-toggle">
                                 <span class="cart-label">
                                     <span class="cart-name">My Cart</span>
@@ -181,7 +181,7 @@
                                 <!-- End of Cart Action -->
                             </div>
                             <!-- End of Dropdown Box -->
-                        </div>
+                        </div> --}}
 
                         <div class="header-search hs-toggle mobile-search">
                             <a href="#" class="search-toggle">
@@ -248,11 +248,11 @@
             'delay': '.3s'
         }">
             <div class="container">
-                <div class="footer-top">
+                {{-- <div class="footer-top">
                     <div class="row">
                         <div class="col-lg-3">
                             <a href="/" class="logo-footer">
-                                {{-- <img src="images/logo-footer.png" alt="logo-footer" width="163" height="39" /> --}}
+                                <img src="images/logo-footer.png" alt="logo-footer" width="163" height="39" />
                                 <span style="color: #ffffff; font-size: 15px !important; text-transform: uppercase">{{ trans('panel.site_title') }}</span>
                             </a>
                             <!-- End of FooterLogo -->
@@ -273,7 +273,7 @@
                             <!-- End of Newsletter -->
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- End of FooterTop -->
                 <div class="footer-middle">
                     <div class="row">
@@ -393,7 +393,9 @@
                         </figure>
                     </div>
                     <div class="footer-center">
-                        <p class="copyright">{{ trans('panel.site_title') }} &copy; 2021. Created by: <a style="color: white" href="http://developerwilson.com/">Developer Wilson</a> All Rights Reserved</p>
+                        <p class="copyright">{{ trans('panel.site_title') }} &copy; 2021.
+                            {{-- Created by: <a style="color: white" href="http://developerwilson.com/">Developer Wilson</a> --}}
+                            All Rights Reserved</p>
                     </div>
                     <div class="footer-right">
                         <div class="social-links">
@@ -420,9 +422,9 @@
         </a>
         <a href="wishlist.html" class="sticky-link">
             <i class="d-icon-heart"></i>
-            <span>Wishlist</span>
+            <span>Products</span>
         </a>
-        <a href="account.html" class="sticky-link">
+        {{-- <a href="account.html" class="sticky-link">
             <i class="d-icon-user"></i>
             <span>Account</span>
         </a>
@@ -487,7 +489,7 @@
                 <!-- End of Cart Action -->
             </div>
             <!-- End of Dropdown Box -->
-        </div>
+        </div> --}}
     </div>
     <!-- Scroll Top -->
     <a id="scroll-top" href="#top" title="Top" role="button" class="scroll-top"><i class="fas fa-chevron-up"></i></a>

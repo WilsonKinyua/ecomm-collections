@@ -31,7 +31,7 @@
                             {{ $productCategory->name }}
                         </td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <th>
                             {{ trans('cruds.productCategory.fields.description') }}
                         </th>
@@ -50,7 +50,7 @@
                                 </a>
                             @endif
                         </td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
             <div class="form-group">

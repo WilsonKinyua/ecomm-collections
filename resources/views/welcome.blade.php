@@ -14,15 +14,16 @@
                     <div class="sidebar-content">
                         <div class="sticky-sidebar">
                             <ul class="menu vertical-menu category-menu mb-4">
-                                <li><a href="/" class="menu-title">Popular Categories</a></li>
-
+                                <li><a href="#" class="menu-title">Popular Categories</a></li>
+                                <li><a href="#" class="menu-title">Trendy House holds</a></li>
                                @foreach ($categories as $item)
                                 <li>
                                     <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
                                 </li>
                                @endforeach
+                               <li><a href="#" class="menu-title">Kitchenware category</a></li>
                             </ul>
-                            <div class="widget widget-products" data-animation-options="{
+                            {{-- <div class="widget widget-products" data-animation-options="{
                                 'delay': '.3s'
                             }">
                                 <h4 class="widget-title">Our Featured</h4>
@@ -59,7 +60,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </aside>
@@ -204,7 +205,7 @@
                     <section class="product-wrapper mb-4">
                         <h2 class="title title-underline with-link appear-animate" data-animation-options="{
                             'delay': '.3s'
-                        }">Popular Products<a href="#">View more<i class="fas fa-chevron-right"></i></a></h2>
+                        }">Trendy House holds<a href="#">View more<i class="fas fa-chevron-right"></i></a></h2>
                         <div class="row gutter-xs appear-animate" data-animation-options="{
                             'delay': '.3s'
                         }">
@@ -244,7 +245,7 @@
                         @endforeach
                         </div>
                     </section>
-
+{{--
                     <section class="banner banner-cta mb-7 text-center"
                         style="background-image: url({{ asset('assets/images/demos/demo3/banner.jpg')}})">
                         <div class="banner-content appear-animate" data-animation-options="{
@@ -262,12 +263,12 @@
                                 <button class="btn btn-dark btn-sm" type="submit">Subscribe</button>
                             </form>
                         </div>
-                    </section>
+                    </section> --}}
 
                     <section class="product-wrapper mb-4">
                         <h2 class="title title-underline with-link appear-animate" data-animation-options="{
                             'delay': '.3s'
-                        }">Latest Products<a href="#">View more<i class="fas fa-chevron-right"></i></a></h2>
+                        }">Kitchenware Products<a href="#">View more<i class="fas fa-chevron-right"></i></a></h2>
                         <div class="row gutter-xs appear-animate" data-animation-options="{
                             'delay': '.3s'
                         }">

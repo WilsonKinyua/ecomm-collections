@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'Castle Collection',
+    'site_title' => 'Castle Homes',
 ];
