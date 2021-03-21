@@ -11,7 +11,7 @@
                             <figure class="product-image">
                                 <img src="{{ asset($details->photo)}}"
                                     data-zoom-image="{{ asset($details->photo)}}"
-                                    alt="{{ $details->name }}" width="800" height="900">
+                                    alt="{{ $details->name }}" style="width: 600px; height: 600px">
                             </figure>
                         </div>
                     </div>

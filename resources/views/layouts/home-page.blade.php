@@ -281,26 +281,28 @@
                             <div class="widget">
                                 <h4 class="widget-title">Contact Info</h4>
                                 <ul class="widget-body">
-                                   @foreach ($site as $item)
                                    <li>
                                     <label>Phone:</label>
-                                    <a href="#">{{ $item->phone }}</a>
+                                    <a href="tel:+254717180525">+254717180525</a>
                                 </li>
                                 <li>
                                     <label>Email:</label>
-                                    <a href="malto:{{ $item->email }}">{{ $item->email }}</a>
+                                    <a href="malto:castlecollection20@gmail.com">castlecollection20@gmail.com</a>
                                 </li>
                                 <li>
                                     <label>Address:</label>
-                                    <a href="#">{{ $item->address }}</a>
+                                    <a href="#">Nairobi, Kenya</a>
                                 </li>
                                 <li>
                                     <label>WORKING DAYS/HOURS</label>
                                 </li>
                                 <li>
-                                    <a href="#">{{ $item->working_days }}</a>
+                                    <a href="#">
+                                                Mon-Fri 9AM-6:30PM <br>
+                                                Sat: 10am-4pm <br>
+                                                Sun: CLOSED!
+                                    </a>
                                 </li>
-                                   @endforeach
                                 </ul>
                             </div>
                             <!-- End of Widget -->
@@ -416,11 +418,11 @@
             <i class="d-icon-home"></i>
             <span>Home</span>
         </a>
-        <a href="demo3-shop.html" class="sticky-link">
+        {{-- <a href="{{ route('categories.categories') }}" class="sticky-link">
             <i class="d-icon-volume"></i>
             <span>Categories</span>
-        </a>
-        <a href="wishlist.html" class="sticky-link">
+        </a> --}}
+        <a href="{{ route('products.products') }}" class="sticky-link">
             <i class="d-icon-heart"></i>
             <span>Products</span>
         </a>

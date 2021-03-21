@@ -24,6 +24,28 @@ class HomePageController extends Controller
         return view("product-details", compact("details","categories","site"));
     }
 
+    // view all products
+
+    public function allProducts() {
+
+        $products = Product::all();
+        $categories = ProductCategory::all();
+        $site       = Homepage::all();
+        return view("products", compact("products","categories","site"));
+
+    }
+
+    // view all products categories
+
+    public function allCategories() {
+
+        $categories = ProductCategory::all();
+        $site       = Homepage::all();
+
+        return view("categories", compact("categories","site"));
+    }
+
+    // filter products by category
     public function productCategory($id) {
 
         $categories = ProductCategory::all();

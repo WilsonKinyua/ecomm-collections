@@ -19,6 +19,12 @@ Route::post("account/create/","HomePageController@register")->name("auth.registe
 // create account
 // Route::get("account/register","HomePageController@registerUser")->name("auth.register");
 
+// all products
+Route::get("/products", "HomePageController@allProducts")->name("products.products");
+
+// all categories
+Route::get("/categories","HomePageController@allCategories")->name("categories.categories");
+
 Route::get("cart","HomePageController@cart")->name("cart.cart");
 Route::get("cart/add/{id}","HomePageController@addCart")->name("cart.add");
 Route::post("cart/update","HomePageController@updateCart")->name("cart.update");
