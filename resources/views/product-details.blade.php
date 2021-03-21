@@ -42,8 +42,9 @@
                                     <input class="quantity form-control" type="number" min="1" max="1000000">
                                     <button class="quantity-plus d-icon-plus"></button>
                                 </div> --}}
-                                        <a href="{{ route('cart.add', $details->id )}}" class="btn-product"><i class="d-icon-bag"></i>Add To Cart</a>
-                                   
+                                        {{-- <a href="{{ route('cart.add', $details->id )}}" class="btn-product">Need Help? Chat via Whatsapp</a> --}}
+                                        <a href="https://api.whatsapp.com/send?phone=254717180525&text=More for less!! - {{ $details->name }} - {{ trans('panel.site_title') }}" target="_blank" class="btn-product">Need Help? Chat via Whatsapp</a>
+
                             </div>
                         </div>
 
@@ -51,9 +52,9 @@
 
                         <div class="product-footer">
                             <div class="social-links">
-                                <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                                <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                                <a href="#" class="social-link social-vimeo fab fa-vimeo-v"></a>
+                                <a href="https://www.facebook.com/Castle-Collections-101358578308174" target="_blank" class="social-link social-facebook fab fa-facebook-f"></a>
+                                <a href="https://www.instagram.com/castle1_collections/" target="_blank" class="social-link social-twitter fab fa-instagram"></a>
+                                <a href="https://chat.whatsapp.com/HMgtavQSJ0G4JncLLptYRz" target="_blank" class="social-link social-linkedin fab fa-whatsapp" ></a>
                             </div>
                             {{-- <div class="product-action">
                                 <a href="#" class="btn-product btn-wishlist"><i class="d-icon-heart"></i>Add To

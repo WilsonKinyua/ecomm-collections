@@ -160,8 +160,10 @@ class HomePageController extends Controller
     public function index()
     {
         $categories = ProductCategory::all();
+        // $catone = ProductCategory::orderBy('id','asc')->limit(4);
+        // $cattwo = ProductCategory::orderBy('id','desc')->limit(4);
         $site       = Homepage::all();
-        $products   = Product::orderBy('id',"asc")->paginate(16);
+        $products   = Product::all();
 
         // $productslatest   = Product::orderBy('id',"desc")->paginate(12);
         $productslatest = Product::with(['categories', 'media'])->orderBy('id',"desc")->paginate(12);

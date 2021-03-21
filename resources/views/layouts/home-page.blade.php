@@ -399,9 +399,9 @@
                     </div>
                     <div class="footer-right">
                         <div class="social-links">
-                            <a href="#" class="social-link social-facebook fab fa-facebook-f"></a>
-                            <a href="#" class="social-link social-twitter fab fa-twitter"></a>
-                            <a href="#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                            <a href="https://www.facebook.com/Castle-Collections-101358578308174" target="_blank" class="social-link social-facebook fab fa-facebook-f"></a>
+                            <a href="https://www.instagram.com/castle1_collections/" target="_blank" class="social-link social-twitter fab fa-instagram"></a>
+                            <a href="https://chat.whatsapp.com/HMgtavQSJ0G4JncLLptYRz" target="_blank" class="social-link social-linkedin fab fa-whatsapp" ></a>
                         </div>
                     </div>
                 </div>
@@ -514,7 +514,7 @@
 
                 @foreach ($categories as $item)
                 <li class="">
-                    <a href="">{{ $item->name }}</a>
+                    <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
                 </li>
                 @endforeach
 

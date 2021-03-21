@@ -43,14 +43,14 @@
                                    </div>
                                    <a href="{{ route('product.details', $item->id)}}" class="rating-reviews">( 6 reviews )</a>
                                </div> --}}
-                               <div class="product-action">
-                                   {{-- <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
-                                           class="d-icon-heart"></i></a> --}}
+                               {{-- <div class="product-action">
+                                   <a href="#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i
+                                           class="d-icon-heart"></i></a>
                                    <a href="#" class="btn-product btn-cart" data-toggle="modal"
                                        data-target="#addCartModal" title="Add to cart">add to cart</a>
-                                   {{-- <a href="#" class="btn-product-icon btn-quickview" title="Quick View"><i
-                                           class="d-icon-search"></i></a> --}}
-                               </div>
+                                   <a href="#" class="btn-product-icon btn-quickview" title="Quick View"><i
+                                           class="d-icon-search"></i></a>
+                               </div> --}}
                            </div>
                        </div>
                    </div>

@@ -139,7 +139,7 @@
                 </ul>
             </li>
         @endcan
-        @can('setting_access')
+        {{-- @can('setting_access')
             <li class="c-sidebar-nav-dropdown {{ request()->is("admin/homepages*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
@@ -160,7 +160,7 @@
                     @endcan
                 </ul>
             </li>
-        @endcan
+        @endcan --}}
         @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
             @can('profile_password_edit')
                 <li class="c-sidebar-nav-item">

@@ -15,13 +15,11 @@
                         <div class="sticky-sidebar">
                             <ul class="menu vertical-menu category-menu mb-4">
                                 <li><a href="#" class="menu-title">Popular Categories</a></li>
-                                <li><a href="#" class="menu-title">Trendy House holds</a></li>
                                @foreach ($categories as $item)
                                 <li>
                                     <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
                                 </li>
                                @endforeach
-                               <li><a href="#" class="menu-title">Kitchenware category</a></li>
                             </ul>
                             {{-- <div class="widget widget-products" data-animation-options="{
                                 'delay': '.3s'
@@ -204,8 +202,10 @@
                     </section>
                     <section class="product-wrapper mb-4">
                         <h2 class="title title-underline with-link appear-animate" data-animation-options="{
-                            'delay': '.3s'
-                        }">Trendy House holds<a href="#">View more<i class="fas fa-chevron-right"></i></a></h2>
+                                'delay': '.3s'
+                            }">Trendy House holds & Kitchenware
+                            {{-- <a href="#">View more<i class="fas fa-chevron-right"></i></a> --}}
+                        </h2>
                         <div class="row gutter-xs appear-animate" data-animation-options="{
                             'delay': '.3s'
                         }">
@@ -216,7 +216,7 @@
                                 <figure class="product-media">
                                     <a href="{{ route('product.details', $product->id)}}">
                                         <img src="{{ asset($product->photo)}}" alt="product"
-                                            width="280" height="315">
+                                        style="width: 200px; height: 200px" >
                                     </a>
                                     <div class="product-action">
                                         {{-- <a href="" class="btn-product"
@@ -265,7 +265,7 @@
                         </div>
                     </section> --}}
 
-                    <section class="product-wrapper mb-4">
+                    {{-- <section class="product-wrapper mb-4">
                         <h2 class="title title-underline with-link appear-animate" data-animation-options="{
                             'delay': '.3s'
                         }">Kitchenware Products<a href="#">View more<i class="fas fa-chevron-right"></i></a></h2>
@@ -282,8 +282,8 @@
                                         alt="product" style="width: 200px; height: 200px">
                                     </a>
                                     <div class="product-action">
-                                        {{-- <a href="" class="btn-product"
-                                            title="Add to Cart">Add to Cart</a> --}}
+                                        <a href="" class="btn-product"
+                                            title="Add to Cart">Add to Cart</a>
                                     </div>
 
                                     <div>
@@ -307,7 +307,7 @@
                         </div>
                         @endforeach
                         </div>
-                    </section>
+                    </section> --}}
                 </div>
             </div>
         </div>
