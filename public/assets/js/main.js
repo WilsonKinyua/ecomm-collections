@@ -325,7 +325,7 @@ window.Donald = {};
 
 	/**
 	 * @function appear
-     * 
+     *
 	 * @param {HTMLElement} el
 	 * @param {function} fn
 	 * @param {object} options
@@ -1098,7 +1098,7 @@ window.Donald = {};
             });
 
         // Open newsletter Popup after 7.5s in home pages
-    
+
     }
 
 	/**
@@ -1879,7 +1879,7 @@ window.Donald = {};
         var onTranslated = function (e) {
             $(window).trigger('appear.check');
 
-            // Video Play	
+            // Video Play
             var $el = $(e.currentTarget),
                 $activeVideos = $el.find('.owl-item.active video');
 
@@ -2085,7 +2085,7 @@ window.Donald = {};
         }
         QuantityInput.min = 1;
         QuantityInput.max = 1000000;
-        QuantityInput.value = 1;
+
         QuantityInput.prototype.init = function ($el) {
             var self = this;
 
@@ -2452,7 +2452,7 @@ window.Donald = {};
 
     /**
 	 * @function floatSVG
-	 * @param {string|jQuery} selector 
+	 * @param {string|jQuery} selector
 	 * @param {object} options
 	 */
     Donald.floatSVG = (function () {
@@ -2748,7 +2748,7 @@ window.Donald = {};
                         imageSrc: $product.find('.product-media img').attr('src'),
                         imageLink: $product.find('.product-name > a').attr('href'),
                         price: $product.find('.product-price').html(),
-                        count: $product.find('.quantity').val()
+
                     });
             });
 

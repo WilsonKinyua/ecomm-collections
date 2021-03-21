@@ -20,27 +20,8 @@
                                 <li>
                                     <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
                                 </li>
-                                {{-- <a href="demo3-shop.html"><i class="d-icon-camera1"></i>Electronics</a> --}}
                                @endforeach
-
-
                             </ul>
-                            {{-- <div class="banner banner-fixed overlay-zoom overlay-dark">
-                                <figure>
-                                    <img src="{{ asset('assets/images/demos/demo3/banner2.jpg')}}" width="280" height="312"
-                                        alt="banner" />
-                                </figure>
-                                <div class="banner-price-info font-weight-bold text-white text-uppercase">
-                                    20-22<sup>th</sup> April</div>
-                                <div class="banner-content text-center w-100">
-                                    <h4
-                                        class="banner-subtitle d-inline-block bg-primary text-uppercase ls-normal">
-                                        Ultimate Sale</h4>
-                                    <h3 class="banner-title ls-l text-uppercase text-white font-weight-bold">Up
-                                        to 70%</h3>
-                                    <p class="mb-4 font-primary text-white lh-1">Discount Selected Items</p>
-                                </div>
-                            </div> --}}
                             <div class="widget widget-products" data-animation-options="{
                                 'delay': '.3s'
                             }">
@@ -71,12 +52,6 @@
                                                 <div class="product-price">
                                                     <span class="price">Ksh {{ $item->price_now }}</span>
                                                 </div>
-                                                {{-- <div class="ratings-container">
-                                                    <div class="ratings-full">
-                                                        <span class="ratings" style="width:100%"></span>
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div>
-                                                </div> --}}
                                             </div>
                                         </div>
                                            @endforeach
@@ -243,8 +218,8 @@
                                             width="280" height="315">
                                     </a>
                                     <div class="product-action">
-                                        <a href="" class="btn-product"
-                                            title="Add to Cart">Add to Cart</a>
+                                        {{-- <a href="" class="btn-product"
+                                            title="Add to Cart">Add to Cart</a> --}}
                                     </div>
 
                                     <div>
@@ -306,8 +281,8 @@
                                         alt="product" style="width: 200px; height: 200px">
                                     </a>
                                     <div class="product-action">
-                                        <a href="" class="btn-product"
-                                            title="Add to Cart">Add to Cart</a>
+                                        {{-- <a href="" class="btn-product"
+                                            title="Add to Cart">Add to Cart</a> --}}
                                     </div>
 
                                     <div>

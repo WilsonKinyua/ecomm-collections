@@ -10,8 +10,8 @@
                         <div class="product-single-carousel owl-carousel owl-theme owl-nav-inner row cols-1">
                             <figure class="product-image">
                                 <img src="{{ asset($details->photo)}}"
-                                    data-zoom-image="images/product/product-1-800x900.jpg"
-                                    alt="Women's Brown Leather Backpacks" width="800" height="900">
+                                    data-zoom-image="{{ asset($details->photo)}}"
+                                    alt="{{ $details->name }}" width="800" height="900">
                             </figure>
                         </div>
                     </div>
@@ -20,48 +20,14 @@
                     <div class="product-details">
                         <div class="product-navigation">
                             <ul class="breadcrumb breadcrumb-lg">
-                                <li><a href="demo1.html"><i class="d-icon-home"></i></a></li>
+                                <li><a href="/"><i class="d-icon-home"></i></a></li>
                                 <li><a class="active">Product</a></li>
                                 <li>{{ $details->name }}</li>
                             </ul>
-
-                            {{-- <ul class="product-nav">
-                                <li class="product-nav-prev">
-                                    <a href="#">
-                                        <i class="d-icon-arrow-left"></i> Prev
-                                        <span class="product-nav-popup">
-                                            <img src="images/product/product-thumb-prev.jpg"
-                                                alt="product thumbnail" width="110" height="123">
-                                            <span class="product-name">Sed egtas Dnte Comfort</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="product-nav-next">
-                                    <a href="#">
-                                        Next <i class="d-icon-arrow-right"></i>
-                                        <span class="product-nav-popup">
-                                            <img src="images/product/product-thumb-next.jpg"
-                                                alt="product thumbnail" width="110" height="123">
-                                            <span class="product-name">Sed egtas Dnte Comfort</span>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul> --}}
                         </div>
 
                         <h1 class="product-name">{{ $details->name }}</h1>
-                        {{-- <div class="product-meta">
-                            SKU: <span class="product-sku">12345670</span>
-                            BRAND: <span class="product-brand">The Northland</span>
-                        </div> --}}
                         <div class="product-price">Ksh {{ $details->price_now }}</div>
-                        {{-- <div class="ratings-container">
-                            <div class="ratings-full">
-                                <span class="ratings" style="width:80%"></span>
-                                <span class="tooltiptext tooltip-top"></span>
-                            </div>
-                            <a href="#product-tab-reviews" class="link-to-tab rating-reviews">( 6 reviews )</a>
-                        </div> --}}
                         <p class="product-short-desc">
                             {{ $details->description }}
                            </p>
@@ -69,15 +35,15 @@
                         <hr class="product-divider">
 
                         <div class="product-form product-qty">
-                            <label>QTY:</label>
+                            {{-- <label>QTY:</label> --}}
                             <div class="product-form-group">
-                                <div class="input-group">
+                                {{-- <div class="input-group">
                                     <button class="quantity-minus d-icon-minus"></button>
                                     <input class="quantity form-control" type="number" min="1" max="1000000">
                                     <button class="quantity-plus d-icon-plus"></button>
-                                </div>
-                                <button class="btn-product btn-cart"><i class="d-icon-bag"></i>Add To
-                                    Cart</button>
+                                </div> --}}
+                                        <a href="{{ route('cart.add', $details->id )}}" class="btn-product"><i class="d-icon-bag"></i>Add To Cart</a>
+                                   
                             </div>
                         </div>
 

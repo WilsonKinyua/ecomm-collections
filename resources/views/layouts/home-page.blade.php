@@ -35,6 +35,7 @@
 
     <!-- Main CSS File -->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.min.css')}}">
+             @yield('css')
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/new-styles.css')}}">
 
 </head>
@@ -125,7 +126,7 @@
                             <div class="dropdown-box">
                                 <div class="product product-cart-header">
                                     <span class="product-cart-counts">2 items</span>
-                                    <span><a href="cart.html">View cart</a></span>
+                                    <span><a href="{{ route('cart.cart')}}">View cart</a></span>
                                 </div>
                                 <div class="products scrollable">
                                     <div class="product product-cart">
@@ -175,7 +176,7 @@
                                 </div>
                                 <!-- End of Cart Total -->
                                 <div class="cart-action">
-                                    <a href="checkout.html" class="btn btn-dark"><span>Checkout</span></a>
+                                    <a href="{{ route('account.checkout')}}" class="btn btn-dark"><span>Checkout</span></a>
                                 </div>
                                 <!-- End of Cart Action -->
                             </div>
@@ -426,7 +427,7 @@
             <span>Account</span>
         </a>
         <div class="dropdown cart-dropdown dir-up">
-            <a href="cart.html" class="sticky-link cart-toggle">
+            <a href="{{ route('cart.cart')}}" class="sticky-link cart-toggle">
                 <i class="d-icon-bag"></i>
                 <span>Cart</span>
             </a>
@@ -434,7 +435,7 @@
             <div class="dropdown-box">
                 <div class="product product-cart-header">
                     <span class="product-cart-counts">2 items</span>
-                    <span><a href="cart.html">View cart</a></span>
+                    <span><a href="{{ route('cart.cart')}}">View cart</a></span>
                 </div>
                 <div class="products scrollable">
                     <div class="product product-cart">
@@ -481,7 +482,7 @@
                 </div>
                 <!-- End of Cart Total -->
                 <div class="cart-action">
-                    <a href="checkout.html" class="btn btn-dark"><span>Checkout</span></a>
+                    <a href="{{ route('account.checkout')}}" class="btn btn-dark"><span>Checkout</span></a>
                 </div>
                 <!-- End of Cart Action -->
             </div>

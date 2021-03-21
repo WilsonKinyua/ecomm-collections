@@ -6,6 +6,7 @@ use App\Models\Homepage;
 use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\User;
+use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
@@ -95,6 +96,56 @@ class HomePageController extends Controller
         return view("auth-login");
     }
 
+    // add items to cart
+
+    public function addCart($id) {
+
+        $product = Product::find($id);
+
+        $cart = \Cart::add(array(
+            'id' => $product->id,
+            "name" => $product->name,
+            "price" => $product->price_now,
+            'quantity' => 1,
+            'attributes' => array(),
+            'associatedModel' => $product
+        ));
+
+       return redirect()->back();
+
+    }
+
+    // update cart items
+
+    public function updateCart(Request $request) {
+
+        // $product = \Cart::update($request->id, array(
+        //     'quantity' => $request->quantity,
+        // ));
+
+        print_r(json_encode($request->itemId));
+
+        // return redirect()->back();
+    }
+
+    // add items to cart
+
+    public function cart(Request $request) {
+
+        $categories = ProductCategory::all();
+        $site       = Homepage::all();
+
+
+        return view("cart",compact("categories","site"));
+    }
+
+    // checkout
+    public function checkout() {
+
+        $categories = ProductCategory::all();
+        $site       = Homepage::all();
+        return view("checkout", compact("categories","site"));
+    }
 
     // public function registerUser() {
 
