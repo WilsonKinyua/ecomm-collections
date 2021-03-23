@@ -103,6 +103,7 @@
                                 <li class="active">
                                     <a href="/">Home</a>
                                 </li>
+
                             </ul>
                         </nav>
                     </div>
@@ -212,7 +213,15 @@
                                         <a href="/">Home</a>
                                     </li>
                                     {{-- <li>
-                                        <a href="#">About Us</a>
+                                        <a href="#">Pages</a>
+                                        <ul>
+                                            <li><a href="about-us.html">About</a></li>
+                                            <li><a href="contact-us.html">Contact Us</a></li>
+                                            <li><a href="account.html">Login</a></li>
+                                            <li><a href="#">FAQs</a></li>
+                                            <li><a href="error-404.html">Error 404</a></li>
+                                            <li><a href="coming-soon.html">Coming Soon</a></li>
+                                        </ul>
                                     </li> --}}
                                 </ul>
                             </nav>
@@ -285,7 +294,7 @@
                                 <ul class="widget-body">
                                    <li>
                                     <label>Phone:</label>
-                                    <a href="tel:+254717180525">+254717180525</a>
+                                    <a href="tel:+254717180525">+254717180525 / +254729081936</a>
                                 </li>
                                 <li>
                                     <label>Email:</label>
@@ -299,10 +308,8 @@
                                     <label>WORKING DAYS/HOURS</label>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                                Mon-Fri 9AM-6:30PM <br>
-                                                Sat: 10am-4pm <br>
-                                                Sun: CLOSED!
+                                    <a href="#"> Monday Sunday
+                                        <br> 24Hours
                                     </a>
                                 </li>
                                 </ul>
@@ -516,15 +523,33 @@
             </form>
             <!-- End of Search Form -->
             <ul class="mobile-menu mmenu-anim">
-
-                @foreach ($categories as $item)
+                {{-- @foreach ($categories as $item)
                 <li class="">
                     <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
                 </li>
-                @endforeach
+                @endforeach --}}
+                <li>
+					<a href="#">Households</a>
+					<ul>
+                        @foreach ($catone as $item)
+                            <li>
+                                <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
+                            </li>
+                        @endforeach
 
-
-                <li><a href="#">Buy at {{ trans('panel.site_title') }}!</a></li>
+					</ul>
+				</li>
+                <li>
+					<a href="#">Kitchenware</a>
+					<ul>
+                        @foreach ($cattwo as $item)
+                        <li>
+                            <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
+                        </li>
+                    @endforeach
+					</ul>
+				</li>
+                {{-- <li><a href="#">Buy at {{ trans('panel.site_title') }}!</a></li> --}}
             </ul>
             <!-- End of MobileMenu -->
         </div>

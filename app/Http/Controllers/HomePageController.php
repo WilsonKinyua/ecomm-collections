@@ -24,9 +24,10 @@ class HomePageController extends Controller
         $site       = Homepage::all();
 
         $comments = Comment::where("product", "=", $id)->get();
-
+        $catone = ProductCategory::orderBy('id','asc')->limit(4)->get();
+        $cattwo = ProductCategory::orderBy('id','desc')->limit(4)->get();
         // print_r(json_encode($comments));
-        return view("product-details", compact("details","categories","site","comments"));
+        return view("product-details", compact("details","categories","site","comments","catone","cattwo"));
     }
 
     // view all products
@@ -36,7 +37,9 @@ class HomePageController extends Controller
         $products = Product::all();
         $categories = ProductCategory::all();
         $site       = Homepage::all();
-        return view("products", compact("products","categories","site"));
+        $catone = ProductCategory::orderBy('id','asc')->limit(4)->get();
+        $cattwo = ProductCategory::orderBy('id','desc')->limit(4)->get();
+        return view("products", compact("products","categories","site","catone","cattwo"));
 
     }
 
@@ -63,8 +66,10 @@ class HomePageController extends Controller
         // print_r(json_encode($products));
 
         // print_r(json_encode($productscategory));
+        $catone = ProductCategory::orderBy('id','asc')->limit(4)->get();
+        $cattwo = ProductCategory::orderBy('id','desc')->limit(4)->get();
 
-        return view("product-list",compact("categories","site","products","category_name"));
+        return view("product-list",compact("categories","site","products","category_name","catone","cattwo"));
     }
 
     // search
@@ -83,8 +88,11 @@ class HomePageController extends Controller
         $categories = ProductCategory::all();
         $site       = Homepage::all();
 
+        $catone = ProductCategory::orderBy('id','asc')->limit(4)->get();
+        $cattwo = ProductCategory::orderBy('id','desc')->limit(4)->get();
+
         // Return the search view with the resluts compacted
-        return view('search', compact("categories","site",'products'));
+        return view('search', compact("categories","site",'products','catone','cattwo'));
 
     }
 
@@ -209,8 +217,8 @@ class HomePageController extends Controller
     public function index()
     {
         $categories = ProductCategory::all();
-        // $catone = ProductCategory::orderBy('id','asc')->limit(4);
-        // $cattwo = ProductCategory::orderBy('id','desc')->limit(4);
+        $catone = ProductCategory::orderBy('id','asc')->limit(4)->get();
+        $cattwo = ProductCategory::orderBy('id','desc')->limit(4)->get();
         $site       = Homepage::all();
         $products   = Product::all();
 
@@ -218,7 +226,7 @@ class HomePageController extends Controller
         $productslatest = Product::with(['categories', 'media'])->orderBy('id',"desc")->paginate(12);
 
         $featured = Product::inRandomOrder()->limit(3)->get();
-        return view("welcome",compact("categories","site","products","productslatest","featured"));
+        return view("welcome",compact("categories","site","products","productslatest","featured","catone","cattwo"));
     }
 
     /**

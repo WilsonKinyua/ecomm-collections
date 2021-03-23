@@ -7,10 +7,11 @@
         <div class="container">
             <div class="row">
                 <aside class="col-xl-3 col-lg-4 sidebar sidebar-fixed sticky-sidebar-wrapper home-sidebar">
-                    <div class="sidebar-overlay">
+                    {{-- icon fulani --}}
+                    {{-- <div class="sidebar-overlay">
                         <a class="sidebar-close" href="#"><i class="d-icon-times"></i></a>
                     </div>
-                    <a href="#" class="sidebar-toggle"><i class="fas fa-chevron-right"></i></a>
+                    <a href="#" class="sidebar-toggle"><i class="fas fa-chevron-right"></i></a> --}}
                     <div class="sidebar-content">
                         <div class="sticky-sidebar">
                             <ul class="menu vertical-menu category-menu mb-4">
@@ -85,16 +86,16 @@
                                     'delay': '.2s',
                                     'duration': '1s'
                                 }">
-                                    <h4 class="banner-subtitle mb-2 text-white">{{ trans('panel.site_title') }}</h4>
-                                    <h3 style="color: rgb(255, 0, 0)" class="banner-title mb-0 text-uppercase ls-l">KITCHENWARE AND HOUSE HOLDS </h3>
+                                    {{-- <h4 class="banner-subtitle mb-2 text-white">{{ trans('panel.site_title') }}</h4> --}}
+                                    <h3 style="color: rgb(255, 0, 0)" class="banner-title mb-0 text-uppercase ls-l">KITCHENWARE </h3>
                                     {{-- <p class="font-primary font-weight-semi-bold ls-l text-dark mb-3">Get Free
                                         Shipping on all orders over $75</p>
                                     <div
                                         class="banner-price-info d-flex align-items-center font-secondary font-weight-semi-bold text-uppercase text-white ml-3 mb-6">
                                         <sup class="d-inline-block font-weight-bold ls-l text-dark">up
                                             to</sup><span class="text-primary font-weight-bold">$100</span>off
-                                    </div>
-                                    <a href="#" class="btn btn-solid">Shop Now</a> --}}
+                                    </div> --}}
+                                    <a href="product-list/category/9" class="btn btn-solid">Shop Now</a>
                                 </div>
                             </div>
                             <div class="banner banner-fixed intro-slide2">
@@ -102,11 +103,11 @@
                                     <img src="https://gbckitchenandbath.com/wp-content/uploads/2020/03/kitchen-appliances-1.jpg" alt="intro-banner" style="width: 880px; height: 474px;" />
                                 </figure>
                                 <div class="banner-content y-50 pb-10 text-right">
-                                    <h4 style="color: white !important" class="banner-subtitle text-primary mb-3 slide-animate"
+                                    {{-- <h4 style="color: white !important" class="banner-subtitle text-primary mb-3 slide-animate"
                                         data-animation-options="{
                                         'name': 'fadeInRightShorter',
                                         'duration': '1s'
-                                    }">{{ trans('panel.site_title') }}</h4>
+                                    }">{{ trans('panel.site_title') }}</h4> --}}
                                     <h2 style="color: rgb(255, 0, 0)" class="banner-title text-uppercase ls-l mb-0 slide-animate"
                                         data-animation-options="{
                                         'name': 'fadeInRightShorter',
@@ -118,13 +119,13 @@
                                         'name': 'fadeInRightShorter',
                                         'delay': '.3s',
                                         'duration': '1s'
-                                    }">Start at $12.00</p>
-                                    <a href="#" class="btn btn-outline btn-dark mb-2 slide-animate"
+                                    }">Start at $12.00</p> --}}
+                                    <a href="/products" class="btn btn-solid mb-2 slide-animate"
                                         data-animation-options="{
                                         'name': 'fadeInRightShorter',
                                         'delay': '.5s',
                                         'duration': '1s'
-                                    }">Shop Now</a> --}}
+                                    }">Shop Now</a>
                                 </div>
                             </div>
                             <div class="banner banner-fixed intro-slide3">
@@ -132,28 +133,28 @@
                                     <img src="https://www.electroluxgroup.com/wp-content/uploads/sites/2/2014/05/Expressionist-Collection-in-kitchen1.jpg" alt="intro-banner" style="width: 880px; height: 474px;"  />
                                 </figure>
                                 <div class="banner-content y-50 pb-3">
-                                    <h4 class="banner-subtitle ls-l mb-0 slide-animate" data-animation-options="{
+                                    {{-- <h4 class="banner-subtitle ls-l mb-0 slide-animate" data-animation-options="{
                                         'name': 'fadeInUpShorter',
                                         'delay': '.1s',
                                         'duration': '1s'
-                                    }">{{ trans('panel.site_title') }}</h4>
+                                    }">{{ trans('panel.site_title') }}</h4> --}}
                                     <h2 style="color: rgb(255, 0, 0)" class="banner-title text-uppercase ls-m mb-1 slide-animate"
                                         data-animation-options="{
                                         'name': 'fadeInUpShorter',
                                         'delay': '.1s',
                                         'duration': '1s'
-                                    }">Quality Products</h2>
+                                    }">Blenders</h2>
                                     {{-- <p class="font-primary ls-m mb-5 text-dark text-uppercase slide-animate"
                                         data-animation-options="{
                                         'name': 'fadeInUpShorter',
                                         'delay': '.3s',
                                         'duration': '1s'
-                                    }">From $19.00</p>
-                                    <a href="#" class="btn btn-dark slide-animate" data-animation-options="{
+                                    }">From $19.00</p> --}}
+                                    <a href="product-list/category/8" class="btn btn-dark slide-animate" data-animation-options="{
                                         'name': 'fadeInUpShorter',
                                         'delay': '.5s',
                                         'duration': '1s'
-                                    }">Shop Now</a> --}}
+                                    }">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -161,38 +162,42 @@
                         <div class="row">
                             <div class="col-md-6 mb-4">
                                 <div class="category category-absolute category-banner overlay-light">
-                                    <a href="#">
+                                    <a href="product-list/category/2">
                                         <figure class="category-media">
                                             <img src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="category"
                                                 style="width:430px; height:210px;">
                                         </figure>
                                     </a>
-                                    <div class="category-content">
-                                        <h4 style="color: rgb(0, 0, 0)" class="category-name">For Quality Products</h4>
-                                        {{-- <span class="category-count">
-                                            <span>6</span> Products
-                                        </span>
-                                        <a href="#" class="btn btn-underline btn-link btn-sm">Shop Now<i
-                                                class="d-icon-arrow-right"></i></a> --}}
-                                    </div>
+                                    <a href="product-list/category/2">
+                                        <div class="category-content">
+                                            <h4 style="color: rgb(0, 0, 0)" class="category-name">Duvet Covers</h4>
+                                            {{-- <span class="category-count">
+                                                <span>6</span> Products
+                                            </span>
+                                            <a href="#" class="btn btn-underline btn-link btn-sm">Shop Now<i
+                                                    class="d-icon-arrow-right"></i></a> --}}
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-4">
                                 <div class="category category-absolute category-banner overlay-light">
-                                    <a href="#">
+                                    <a href="product-list/category/5">
                                         <figure class="category-media">
                                             <img src="https://images.pexels.com/photos/932095/pexels-photo-932095.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="category"
                                             style="width:430px; height:210px;">
                                         </figure>
                                     </a>
-                                    <div class="category-content">
-                                        <h4 style="color: rgb(255, 0, 43)" class="category-name">Popular Products</h4>
-                                        {{-- <span class="category-count">
-                                            <span>6</span> Products
-                                        </span>
-                                        <a href="#" class="btn btn-underline btn-link btn-sm">Shop Now<i
-                                                class="d-icon-arrow-right"></i></a> --}}
-                                    </div>
+                                    <a href="product-list/category/5">
+                                        <div class="category-content">
+                                            <h4 style="color: rgb(255, 0, 43)" class="category-name">Dinnersets</h4>
+                                            {{-- <span class="category-count">
+                                                <span>6</span> Products
+                                            </span>
+                                            <a href="#" class="btn btn-underline btn-link btn-sm">Shop Now<i
+                                                    class="d-icon-arrow-right"></i></a> --}}
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
