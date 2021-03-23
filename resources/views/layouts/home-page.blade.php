@@ -308,7 +308,7 @@
                                     <label>WORKING DAYS/HOURS</label>
                                 </li>
                                 <li>
-                                    <a href="#"> Monday Sunday
+                                    <a href="#"> Monday - Sunday
                                         <br> 24Hours
                                     </a>
                                 </li>
