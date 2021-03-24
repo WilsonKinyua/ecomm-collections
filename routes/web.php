@@ -31,6 +31,7 @@ Route::any('/search', "HomePageController@search")->name('search.search');
 Route::get("cart","HomePageController@cart")->name("cart.cart");
 Route::get("cart/add/{id}","HomePageController@addCart")->name("cart.add");
 Route::post("cart/update","HomePageController@updateCart")->name("cart.update");
+Route::post("comment/add","HomePageController@addComment")->name("add.comment");
 
 Route::get("checkout","HomePageController@checkout")->name("account.checkout");
 

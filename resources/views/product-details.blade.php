@@ -184,7 +184,7 @@
                                     <option value="1">Very poor</option>
                                 </select> --}}
                             </div>
-                            <form method="POST" action="{{ route("admin.comments.store") }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route("add.comment") }}" enctype="multipart/form-data">
                                 @csrf
                                 <textarea id="reply-message" cols="30" rows="4" name="description" class="form-control mb-4"
                                     placeholder="Comment *" required></textarea>

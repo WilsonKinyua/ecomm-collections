@@ -9,10 +9,10 @@ use Illuminate\Http\Response;
 
 class StoreCommentRequest extends FormRequest
 {
-    public function authorize()
-    {
-        return Gate::allows('comment_create');
-    }
+    // public function authorize()
+    // {
+    //     return Gate::allows('comment_create');
+    // }
 
     public function rules()
     {

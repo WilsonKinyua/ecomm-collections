@@ -79,7 +79,7 @@
                         }">
                             <div class="banner banner-fixed intro-slide1">
                                 <figure>
-                                    <img src="https://www.grundig.com/ktchnmag/wp-content/uploads/2018/07/GRUNDIG_KTCHN_kitchen-appliance-trends-2018_GRUNDIG.jpg" alt="intro-banner" style="width: 880px; height: 474px;" />
+                                    <img src="{{ asset('assets/3.jpeg')}}" alt="intro-banner" style="width: 880px; height: 474px;" />
                                 </figure>
                                 <div class="banner-content y-50 slide-animate" data-animation-options="{
                                     'name': 'fadeIn',
@@ -87,7 +87,7 @@
                                     'duration': '1s'
                                 }">
                                     {{-- <h4 class="banner-subtitle mb-2 text-white">{{ trans('panel.site_title') }}</h4> --}}
-                                    <h3 style="color: rgb(255, 0, 0)" class="banner-title mb-0 text-uppercase ls-l">KITCHENWARE </h3>
+                                    <h3 style="color: rgb(0, 0, 0); font-weight: 900" class="banner-title mb-0 text-uppercase ls-l">KITCHENWARE </h3>
                                     {{-- <p class="font-primary font-weight-semi-bold ls-l text-dark mb-3">Get Free
                                         Shipping on all orders over $75</p>
                                     <div
@@ -95,7 +95,7 @@
                                         <sup class="d-inline-block font-weight-bold ls-l text-dark">up
                                             to</sup><span class="text-primary font-weight-bold">$100</span>off
                                     </div> --}}
-                                    <a href="product-list/category/9" class="btn btn-solid">Shop Now</a>
+                                    <a href="product-list/category/9" class="btn btn-dark">Shop Now</a>
                                 </div>
                             </div>
                             {{-- <div class="banner banner-fixed intro-slide2">
@@ -164,14 +164,14 @@
                                 <div class="category category-absolute category-banner overlay-light">
                                     <a href="product-list/category/6">
                                         <figure class="category-media">
-                                            <img src="https://gbckitchenandbath.com/wp-content/uploads/2020/03/kitchen-appliances-1.jpg" alt="category"
+                                            <img src="{{ asset('assets/1.jpeg')}}" alt="category"
                                             style="width: 880px; height: 400px;">
                                         </figure>
                                     </a>
                                     <a href="product-list/category/6">
                                         <div class="category-content">
                                             {{-- <h4 style="color: rgb(0, 0, 0)" class="category-name">HOUSEHOLDS</h4> --}}
-                                            <h2 style="color: rgb(255, 0, 0)" class="banner-title mb-0 text-uppercase ls-l">HOUSEHOLDS </h2>
+                                            <h2 style="color: rgb(0, 0, 0); font-size: 50px !important; font-weight: 900" class="banner-title mb-0 text-uppercase ls-l">HOUSEHOLDS </h2>
                                             {{-- <span class="category-count">
                                                 <span>6</span> Products
                                             </span> --}}

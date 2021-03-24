@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCommentRequest;
 use App\Models\Comment;
 use App\Models\Homepage;
 use App\Models\Product;
@@ -17,6 +18,13 @@ use Symfony\Component\Console\Input\Input;
 class HomePageController extends Controller
 {
 
+    // add comment
+    public function addComment(StoreCommentRequest $request) {
+        $comment = Comment::create($request->all());
+        return redirect()->back()->with('message', 'Review added successfully');
+    }
+
+    // product details
     public function productDetails($id) {
 
         $details = Product::findOrFail($id);
