@@ -98,28 +98,28 @@
                                     <a href="product-list/category/9" class="btn btn-solid">Shop Now</a>
                                 </div>
                             </div>
-                            <div class="banner banner-fixed intro-slide2">
+                            {{-- <div class="banner banner-fixed intro-slide2">
                                 <figure>
                                     <img src="https://gbckitchenandbath.com/wp-content/uploads/2020/03/kitchen-appliances-1.jpg" alt="intro-banner" style="width: 880px; height: 474px;" />
                                 </figure>
                                 <div class="banner-content y-50 pb-10 text-right">
-                                    {{-- <h4 style="color: white !important" class="banner-subtitle text-primary mb-3 slide-animate"
+                                    <h4 style="color: white !important" class="banner-subtitle text-primary mb-3 slide-animate"
                                         data-animation-options="{
                                         'name': 'fadeInRightShorter',
                                         'duration': '1s'
-                                    }">{{ trans('panel.site_title') }}</h4> --}}
+                                    }">{{ trans('panel.site_title') }}</h4>
                                     <h2 style="color: rgb(255, 0, 0)" class="banner-title text-uppercase ls-l mb-0 slide-animate"
                                         data-animation-options="{
                                         'name': 'fadeInRightShorter',
                                         'delay': '.2s',
                                         'duration': '1s'
                                     }">TRENDY HOUSE HOLDS </h2>
-                                    {{-- <p class="font-primary font-weight-semi-bold ls-l text-dark mb-6 slide-animate"
+                                    <p class="font-primary font-weight-semi-bold ls-l text-dark mb-6 slide-animate"
                                         data-animation-options="{
                                         'name': 'fadeInRightShorter',
                                         'delay': '.3s',
                                         'duration': '1s'
-                                    }">Start at $12.00</p> --}}
+                                    }">Start at $12.00</p>
                                     <a href="/products" class="btn btn-solid mb-2 slide-animate"
                                         data-animation-options="{
                                         'name': 'fadeInRightShorter',
@@ -133,54 +133,58 @@
                                     <img src="https://www.electroluxgroup.com/wp-content/uploads/sites/2/2014/05/Expressionist-Collection-in-kitchen1.jpg" alt="intro-banner" style="width: 880px; height: 474px;"  />
                                 </figure>
                                 <div class="banner-content y-50 pb-3">
-                                    {{-- <h4 class="banner-subtitle ls-l mb-0 slide-animate" data-animation-options="{
+                                    <h4 class="banner-subtitle ls-l mb-0 slide-animate" data-animation-options="{
                                         'name': 'fadeInUpShorter',
                                         'delay': '.1s',
                                         'duration': '1s'
-                                    }">{{ trans('panel.site_title') }}</h4> --}}
+                                    }">{{ trans('panel.site_title') }}</h4>
                                     <h2 style="color: rgb(255, 0, 0)" class="banner-title text-uppercase ls-m mb-1 slide-animate"
                                         data-animation-options="{
                                         'name': 'fadeInUpShorter',
                                         'delay': '.1s',
                                         'duration': '1s'
                                     }">Blenders</h2>
-                                    {{-- <p class="font-primary ls-m mb-5 text-dark text-uppercase slide-animate"
+                                    <p class="font-primary ls-m mb-5 text-dark text-uppercase slide-animate"
                                         data-animation-options="{
                                         'name': 'fadeInUpShorter',
                                         'delay': '.3s',
                                         'duration': '1s'
-                                    }">From $19.00</p> --}}
+                                    }">From $19.00</p>
                                     <a href="product-list/category/8" class="btn btn-dark slide-animate" data-animation-options="{
                                         'name': 'fadeInUpShorter',
                                         'delay': '.5s',
                                         'duration': '1s'
                                     }">Shop Now</a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6 mb-4">
+                            <div class="col-md-12 mb-4">
                                 <div class="category category-absolute category-banner overlay-light">
-                                    <a href="product-list/category/2">
+                                    <a href="product-list/category/6">
                                         <figure class="category-media">
-                                            <img src="https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="category"
-                                                style="width:430px; height:210px;">
+                                            <img src="https://gbckitchenandbath.com/wp-content/uploads/2020/03/kitchen-appliances-1.jpg" alt="category"
+                                            style="width: 880px; height: 400px;">
                                         </figure>
                                     </a>
-                                    <a href="product-list/category/2">
+                                    <a href="product-list/category/6">
                                         <div class="category-content">
-                                            <h4 style="color: rgb(0, 0, 0)" class="category-name">Duvet Covers</h4>
+                                            {{-- <h4 style="color: rgb(0, 0, 0)" class="category-name">HOUSEHOLDS</h4> --}}
+                                            <h2 style="color: rgb(255, 0, 0)" class="banner-title mb-0 text-uppercase ls-l">HOUSEHOLDS </h2>
                                             {{-- <span class="category-count">
                                                 <span>6</span> Products
-                                            </span>
-                                            <a href="#" class="btn btn-underline btn-link btn-sm">Shop Now<i
-                                                    class="d-icon-arrow-right"></i></a> --}}
+                                            </span> --}}
+                                            <a href="product-list/category/6" class="btn btn-dark slide-animate" data-animation-options="{
+                                                'name': 'fadeInUpShorter',
+                                                'delay': '.5s',
+                                                'duration': '1s'
+                                            }">Shop Now</a>
                                         </div>
                                     </a>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-4">
+                            {{-- <div class="col-md-6 mb-4">
                                 <div class="category category-absolute category-banner overlay-light">
                                     <a href="product-list/category/5">
                                         <figure class="category-media">
@@ -191,15 +195,15 @@
                                     <a href="product-list/category/5">
                                         <div class="category-content">
                                             <h4 style="color: rgb(255, 0, 43)" class="category-name">Dinnersets</h4>
-                                            {{-- <span class="category-count">
+                                            <span class="category-count">
                                                 <span>6</span> Products
                                             </span>
                                             <a href="#" class="btn btn-underline btn-link btn-sm">Shop Now<i
-                                                    class="d-icon-arrow-right"></i></a> --}}
+                                                    class="d-icon-arrow-right"></i></a>
                                         </div>
                                     </a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </section>
                     <section class="product-wrapper mb-4">

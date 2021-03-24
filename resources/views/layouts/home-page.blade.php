@@ -528,6 +528,16 @@
                     <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
                 </li>
                 @endforeach --}}
+                    <li>
+					<a href="#">Kitchenware</a>
+					<ul>
+                        @foreach ($cattwo as $item)
+                        <li>
+                            <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
+                        </li>
+                    @endforeach
+					</ul>
+				</li>
                 <li>
 					<a href="#">Households</a>
 					<ul>
@@ -539,16 +549,7 @@
 
 					</ul>
 				</li>
-                <li>
-					<a href="#">Kitchenware</a>
-					<ul>
-                        @foreach ($cattwo as $item)
-                        <li>
-                            <a href="{{ route('product.category',$item->id) }}">{{ $item->name }}</a>
-                        </li>
-                    @endforeach
-					</ul>
-				</li>
+
                 {{-- <li><a href="#">Buy at {{ trans('panel.site_title') }}!</a></li> --}}
             </ul>
             <!-- End of MobileMenu -->
@@ -558,10 +559,10 @@
          <script type="text/javascript">
             (function () {
             var options = {
-            whatsapp: "+254 717 180525", // WhatsApp number
-            call_to_action: "Hi there 👋 Welcome to {{ trans('panel.site_title') }}", // Call to action
+            whatsapp: "+254 729 081936", // WhatsApp number
+            call_to_action: "Hi there ðŸ‘‹ Welcome to {{ trans('panel.site_title') }}", // Call to action
             position: "left", // Position may be 'right' or 'left'
-            pre_filled_message: "Hi there 👋 Welcome to {{ trans('panel.site_title') }}", // WhatsApp pre-filled message
+            pre_filled_message: "Hi there ðŸ‘‹ Welcome to {{ trans('panel.site_title') }}", // WhatsApp pre-filled message
             };
             var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
             var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
