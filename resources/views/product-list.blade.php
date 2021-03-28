@@ -17,7 +17,7 @@
 
 
 
-            <section class="mt-10">
+            <section class="mt-1">
                 <h2 class="title">{{ $category_name->name }} </h2>
                 <div class="row product-wrapper split-line ml-0 mr-0">
                    @if (count($products)>0)
@@ -60,6 +60,41 @@
                    @endif
                 </div>
             </section>
+            {{-- <section>
+                <h2 class="title">View More Categories</h2>
+
+                <div class="owl-carousel owl-theme owl-nav-full row cols-2 cols-md-3 cols-lg-4"
+                    data-owl-options="{
+                    'items': 5,
+                    'nav': false,
+                    'loop': false,
+                    'dots': true,
+                    'margin': 20,
+                    'responsive': {
+                        '0': {
+                            'items': 2
+                        },
+                        '768': {
+                            'items': 3
+                        },
+                        '992': {
+                            'items': 4,
+                            'dots': false,
+                            'nav': true
+                        }
+                    }
+                }">
+                @foreach ($categories as $item)
+                <div class="product shadow-media">
+                    <div class="product-details">
+                        <h3 class="product-name">
+                            <a href="demo3-product.html">{{ $item->name }}</a>
+                        </h3>
+                    </div>
+                </div>
+                @endforeach
+                </div>
+            </section> --}}
         </div>
     </div>
 </main>

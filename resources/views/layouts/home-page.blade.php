@@ -400,7 +400,8 @@
                 <div class="footer-bottom">
                     <div class="footer-left">
                         <figure class="payment">
-                            <img src="{{asset('assets/images/payment.png')}}" alt="payment" width="159" height="29" />
+                          Need Help? Chart via Whatsapp: <br> +254717180525 / +254729081936
+                           {{-- <a class="btn btn-secondary btn-xs"><small style="font-size:2px">Caroline</small> <br> Chart </a> --}}
                         </figure>
                     </div>
                     <div class="footer-center">
@@ -560,9 +561,9 @@
             (function () {
             var options = {
             whatsapp: "+254 729 081936", // WhatsApp number
-            call_to_action: "Hi there ðŸ‘‹ Welcome to {{ trans('panel.site_title') }}", // Call to action
+            call_to_action: "Hi there 👋 Welcome to {{ trans('panel.site_title') }}", // Call to action
             position: "left", // Position may be 'right' or 'left'
-            pre_filled_message: "Hi there ðŸ‘‹ Welcome to {{ trans('panel.site_title') }}", // WhatsApp pre-filled message
+            pre_filled_message: "Hi there 👋 Welcome to {{ trans('panel.site_title') }}", // WhatsApp pre-filled message
             };
             var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
             var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';

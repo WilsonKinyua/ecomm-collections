@@ -3,10 +3,10 @@
 @can('product_category_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.product-categories.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.productCategory.title_singular') }}
-            </a>
-        </div>
+          <a class="btn btn-success" href="{{ route('admin.product-categories.create') }}">
+           {{ trans('global.add') }} {{ trans('cruds.productCategory.title_singular') }}
+          </a>
+   </div>
     </div>
 @endcan
 <div class="card">

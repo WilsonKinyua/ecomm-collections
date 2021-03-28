@@ -43,11 +43,22 @@
                                     <button class="quantity-plus d-icon-plus"></button>
                                 </div> --}}
                                         {{-- <a href="{{ route('cart.add', $details->id )}}" class="btn-product">Need Help? Chat via Whatsapp</a> --}}
-                                        <a href="https://api.whatsapp.com/send?phone=254717180525&text=More for less!! - {{ $details->name }} - {{ trans('panel.site_title') }}" target="_blank" class="btn-product">Need Help? Chat via Whatsapp</a>
-
+                                        <a href="https://api.whatsapp.com/send?phone=254717180525&text=More for less!! -
+                                        {{ $details->name }} - {{ trans('panel.site_title') }}" target="_blank" class="btn-product"> Need Help? Chart via Whatsapp</a> <br> <br>
                             </div>
                         </div>
-
+                        <div class="product-form product-qty">
+                            {{-- <label>QTY:</label> --}}
+                            <div class="product-form-group">
+                                <a href="tel:+254717180525" target="_blank" class="btn-product"> Call to Order(Carolyne)</a> <br> <br>
+                            </div>
+                        </div>
+                        <div class="product-form product-qty">
+                            {{-- <label>QTY:</label> --}}
+                            <div class="product-form-group">
+                                <a href="tel:+254729081936" target="_blank" class="btn-product">Call to Order(Fiona)</a>
+                            </div>
+                        </div>
                         <hr class="product-divider mb-3">
 
                         <div class="product-footer">

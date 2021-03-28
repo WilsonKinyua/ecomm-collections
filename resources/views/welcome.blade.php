@@ -87,7 +87,8 @@
                                     'duration': '1s'
                                 }">
                                     {{-- <h4 class="banner-subtitle mb-2 text-white">{{ trans('panel.site_title') }}</h4> --}}
-                                    <h3 style="color: rgb(0, 0, 0); font-weight: 900" class="banner-title mb-0 text-uppercase ls-l">KITCHENWARE </h3>
+                                    <h3 style="color: rgb(0, 0, 0); font-weight: 900; background: rgb(238,174,202);
+                                                                background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(0,223,255,1) 0%); font-style: italic; font-size: 40px !important;" class="banner-title mb-0 text-uppercase ls-l">KITCHENWARE </h3>
                                     {{-- <p class="font-primary font-weight-semi-bold ls-l text-dark mb-3">Get Free
                                         Shipping on all orders over $75</p>
                                     <div
@@ -171,7 +172,8 @@
                                     <a href="product-list/category/6">
                                         <div class="category-content">
                                             {{-- <h4 style="color: rgb(0, 0, 0)" class="category-name">HOUSEHOLDS</h4> --}}
-                                            <h2 style="color: rgb(0, 0, 0); font-size: 50px !important; font-weight: 900" class="banner-title mb-0 text-uppercase ls-l">HOUSEHOLDS </h2>
+                                            <h2 style="background: rgb(238,174,202);
+                                                                background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(0,223,255,1) 0%); font-size: 40px !important; font-weight: 900; font-style: italic;" class="banner-title mb-0 text-uppercase ls-l">HOUSEHOLDS </h2>
                                             {{-- <span class="category-count">
                                                 <span>6</span> Products
                                             </span> --}}
