@@ -10,36 +10,38 @@
         <form method="POST" action="{{ route("admin.orders.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="product_name_id">{{ trans('cruds.order.fields.product_name') }}</label>
-                <select class="form-control select2 {{ $errors->has('product_name') ? 'is-invalid' : '' }}" name="product_name_id" id="product_name_id">
-                    @foreach($product_names as $id => $product_name)
-                        <option value="{{ $id }}" {{ old('product_name_id') == $id ? 'selected' : '' }}>{{ $product_name }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('product_name'))
+                <label class="required" for="customer_name">{{ trans('cruds.order.fields.customer_name') }}</label>
+                <input class="form-control {{ $errors->has('customer_name') ? 'is-invalid' : '' }}" type="text" name="customer_name" id="customer_name" value="{{ old('customer_name', '') }}" required>
+                @if($errors->has('customer_name'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('product_name') }}
+                        {{ $errors->first('customer_name') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.order.fields.product_name_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.order.fields.customer_name_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="customer_id">{{ trans('cruds.order.fields.customer') }}</label>
-                <select class="form-control select2 {{ $errors->has('customer') ? 'is-invalid' : '' }}" name="customer_id" id="customer_id">
-                    @foreach($customers as $id => $customer)
-                        <option value="{{ $id }}" {{ old('customer_id') == $id ? 'selected' : '' }}>{{ $customer }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('customer'))
+                <label class="required" for="customer_phone">{{ trans('cruds.order.fields.customer_phone') }}</label>
+                <input class="form-control {{ $errors->has('customer_phone') ? 'is-invalid' : '' }}" type="text" name="customer_phone" id="customer_phone" value="{{ old('customer_phone', '') }}" required>
+                @if($errors->has('customer_phone'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('customer') }}
+                        {{ $errors->first('customer_phone') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.order.fields.customer_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.order.fields.customer_phone_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="quantity">{{ trans('cruds.order.fields.quantity') }}</label>
-                <input class="form-control {{ $errors->has('quantity') ? 'is-invalid' : '' }}" type="number" name="quantity" id="quantity" value="{{ old('quantity', '') }}" step="1">
+                <label class="required" for="product">{{ trans('cruds.order.fields.product') }}</label>
+                <input class="form-control {{ $errors->has('product') ? 'is-invalid' : '' }}" type="text" name="product" id="product" value="{{ old('product', '') }}" required>
+                @if($errors->has('product'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('product') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.order.fields.product_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="quantity">{{ trans('cruds.order.fields.quantity') }}</label>
+                <input class="form-control {{ $errors->has('quantity') ? 'is-invalid' : '' }}" type="number" name="quantity" id="quantity" value="{{ old('quantity', '') }}" step="1" required>
                 @if($errors->has('quantity'))
                     <div class="invalid-feedback">
                         {{ $errors->first('quantity') }}
@@ -48,32 +50,14 @@
                 <span class="help-block">{{ trans('cruds.order.fields.quantity_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="address_id">{{ trans('cruds.order.fields.address') }}</label>
-                <select class="form-control select2 {{ $errors->has('address') ? 'is-invalid' : '' }}" name="address_id" id="address_id">
-                    @foreach($addresses as $id => $address)
-                        <option value="{{ $id }}" {{ old('address_id') == $id ? 'selected' : '' }}>{{ $address }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('address'))
+                <label class="required" for="product_price">{{ trans('cruds.order.fields.product_price') }}</label>
+                <input class="form-control {{ $errors->has('product_price') ? 'is-invalid' : '' }}" type="number" name="product_price" id="product_price" value="{{ old('product_price', '') }}" step="0.01" required>
+                @if($errors->has('product_price'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('address') }}
+                        {{ $errors->first('product_price') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.order.fields.address_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label for="phone_id">{{ trans('cruds.order.fields.phone') }}</label>
-                <select class="form-control select2 {{ $errors->has('phone') ? 'is-invalid' : '' }}" name="phone_id" id="phone_id">
-                    @foreach($phones as $id => $phone)
-                        <option value="{{ $id }}" {{ old('phone_id') == $id ? 'selected' : '' }}>{{ $phone }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('phone'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('phone') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.order.fields.phone_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.order.fields.product_price_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

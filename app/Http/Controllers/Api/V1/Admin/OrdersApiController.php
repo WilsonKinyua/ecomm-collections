@@ -15,6 +15,22 @@ class OrdersApiController extends Controller
     {
         abort_if(Gate::denies('order_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return new OrderResource(Order::with(['product_name', 'customer', 'address', 'phone'])->get());
+        return new OrderResource(Order::all());
+    }
+
+    public function show(Order $order)
+    {
+        abort_if(Gate::denies('order_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return new OrderResource($order);
+    }
+
+    public function destroy(Order $order)
+    {
+        abort_if(Gate::denies('order_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $order->delete();
+
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

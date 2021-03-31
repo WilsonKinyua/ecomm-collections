@@ -20,11 +20,11 @@ class Order extends Model
     ];
 
     protected $fillable = [
-        'product_name_id',
-        'customer_id',
+        'customer_name',
+        'customer_phone',
+        'product',
         'quantity',
-        'address_id',
-        'phone_id',
+        'product_price',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -33,25 +33,5 @@ class Order extends Model
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
-    }
-
-    public function product_name()
-    {
-        return $this->belongsTo(Product::class, 'product_name_id');
-    }
-
-    public function customer()
-    {
-        return $this->belongsTo(User::class, 'customer_id');
-    }
-
-    public function address()
-    {
-        return $this->belongsTo(User::class, 'address_id');
-    }
-
-    public function phone()
-    {
-        return $this->belongsTo(User::class, 'phone_id');
     }
 }

@@ -41,22 +41,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.phone') }}
-                        </th>
-                        <td>
-                            {{ $user->phone }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.user.fields.address') }}
-                        </th>
-                        <td>
-                            {{ $user->address }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.user.fields.email_verified_at') }}
                         </th>
                         <td>

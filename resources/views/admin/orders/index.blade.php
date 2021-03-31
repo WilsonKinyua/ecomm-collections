@@ -18,19 +18,19 @@
                             {{ trans('cruds.order.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.order.fields.product_name') }}
+                            {{ trans('cruds.order.fields.customer_name') }}
                         </th>
                         <th>
-                            {{ trans('cruds.order.fields.customer') }}
+                            {{ trans('cruds.order.fields.customer_phone') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.order.fields.product') }}
                         </th>
                         <th>
                             {{ trans('cruds.order.fields.quantity') }}
                         </th>
                         <th>
-                            {{ trans('cruds.order.fields.address') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.order.fields.phone') }}
+                            {{ trans('cruds.order.fields.product_price') }}
                         </th>
                         <th>
                             &nbsp;
@@ -47,23 +47,35 @@
                                 {{ $order->id ?? '' }}
                             </td>
                             <td>
-                                {{ $order->product_name->name ?? '' }}
+                                {{ $order->customer_name ?? '' }}
                             </td>
                             <td>
-                                {{ $order->customer->name ?? '' }}
+                                {{ $order->customer_phone ?? '' }}
+                            </td>
+                            <td>
+                                {{ $order->product ?? '' }}
                             </td>
                             <td>
                                 {{ $order->quantity ?? '' }}
                             </td>
                             <td>
-                                {{ $order->address->address ?? '' }}
+                                {{ $order->product_price ?? '' }}
                             </td>
                             <td>
-                                {{ $order->phone->phone ?? '' }}
-                            </td>
-                            <td>
+                                @can('order_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.orders.show', $order->id) }}">
+                                        {{ trans('global.view') }}
+                                    </a>
+                                @endcan
 
 
+                                @can('order_delete')
+                                    <form action="{{ route('admin.orders.destroy', $order->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                    </form>
+                                @endcan
 
                             </td>
 
@@ -83,7 +95,36 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-  
+@can('order_delete')
+  let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
+  let deleteButton = {
+    text: deleteButtonTrans,
+    url: "{{ route('admin.orders.massDestroy') }}",
+    className: 'btn-danger',
+    action: function (e, dt, node, config) {
+      var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
+          return $(entry).data('entry-id')
+      });
+
+      if (ids.length === 0) {
+        alert('{{ trans('global.datatables.zero_selected') }}')
+
+        return
+      }
+
+      if (confirm('{{ trans('global.areYouSure') }}')) {
+        $.ajax({
+          headers: {'x-csrf-token': _token},
+          method: 'POST',
+          url: config.url,
+          data: { ids: ids, _method: 'DELETE' }})
+          .done(function () { location.reload() })
+      }
+    }
+  }
+  dtButtons.push(deleteButton)
+@endcan
+
   $.extend(true, $.fn.dataTable.defaults, {
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],

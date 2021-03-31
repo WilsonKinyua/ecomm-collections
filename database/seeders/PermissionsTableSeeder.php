@@ -80,43 +80,43 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 18,
-                'title' => 'product_category_create',
+                'title' => 'product_main_category_create',
             ],
             [
                 'id'    => 19,
-                'title' => 'product_category_edit',
+                'title' => 'product_main_category_edit',
             ],
             [
                 'id'    => 20,
-                'title' => 'product_category_show',
+                'title' => 'product_main_category_show',
             ],
             [
                 'id'    => 21,
-                'title' => 'product_category_delete',
+                'title' => 'product_main_category_delete',
             ],
             [
                 'id'    => 22,
-                'title' => 'product_category_access',
+                'title' => 'product_main_category_access',
             ],
             [
                 'id'    => 23,
-                'title' => 'product_tag_create',
+                'title' => 'product_sub_category_create',
             ],
             [
                 'id'    => 24,
-                'title' => 'product_tag_edit',
+                'title' => 'product_sub_category_edit',
             ],
             [
                 'id'    => 25,
-                'title' => 'product_tag_show',
+                'title' => 'product_sub_category_show',
             ],
             [
                 'id'    => 26,
-                'title' => 'product_tag_delete',
+                'title' => 'product_sub_category_delete',
             ],
             [
                 'id'    => 27,
-                'title' => 'product_tag_access',
+                'title' => 'product_sub_category_access',
             ],
             [
                 'id'    => 28,
@@ -140,23 +140,23 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 33,
-                'title' => 'slider_create',
+                'title' => 'review_show',
             ],
             [
                 'id'    => 34,
-                'title' => 'slider_edit',
+                'title' => 'review_delete',
             ],
             [
                 'id'    => 35,
-                'title' => 'slider_show',
+                'title' => 'review_access',
             ],
             [
                 'id'    => 36,
-                'title' => 'slider_delete',
+                'title' => 'order_show',
             ],
             [
                 'id'    => 37,
-                'title' => 'slider_access',
+                'title' => 'order_delete',
             ],
             [
                 'id'    => 38,
@@ -164,70 +164,86 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 39,
-                'title' => 'setting_access',
+                'title' => 'slide_create',
             ],
             [
                 'id'    => 40,
-                'title' => 'homepage_create',
+                'title' => 'slide_edit',
             ],
             [
                 'id'    => 41,
-                'title' => 'homepage_edit',
+                'title' => 'slide_show',
             ],
             [
                 'id'    => 42,
-                'title' => 'homepage_show',
+                'title' => 'slide_delete',
             ],
             [
                 'id'    => 43,
-                'title' => 'homepage_delete',
+                'title' => 'slide_access',
             ],
             [
                 'id'    => 44,
-                'title' => 'homepage_access',
+                'title' => 'sub_slide_ad_one_create',
             ],
             [
                 'id'    => 45,
-                'title' => 'comment_create',
+                'title' => 'sub_slide_ad_one_edit',
             ],
             [
                 'id'    => 46,
-                'title' => 'comment_edit',
+                'title' => 'sub_slide_ad_one_show',
             ],
             [
                 'id'    => 47,
-                'title' => 'comment_show',
+                'title' => 'sub_slide_ad_one_delete',
             ],
             [
                 'id'    => 48,
-                'title' => 'comment_delete',
+                'title' => 'sub_slide_ad_one_access',
             ],
             [
                 'id'    => 49,
-                'title' => 'comment_access',
+                'title' => 'sub_slide_ad_two_create',
             ],
             [
                 'id'    => 50,
-                'title' => 'subscribeduser_create',
+                'title' => 'sub_slide_ad_two_edit',
             ],
             [
                 'id'    => 51,
-                'title' => 'subscribeduser_edit',
+                'title' => 'sub_slide_ad_two_show',
             ],
             [
                 'id'    => 52,
-                'title' => 'subscribeduser_show',
+                'title' => 'sub_slide_ad_two_delete',
             ],
             [
                 'id'    => 53,
-                'title' => 'subscribeduser_delete',
+                'title' => 'sub_slide_ad_two_access',
             ],
             [
                 'id'    => 54,
-                'title' => 'subscribeduser_access',
+                'title' => 'site_setting_create',
             ],
             [
                 'id'    => 55,
+                'title' => 'site_setting_edit',
+            ],
+            [
+                'id'    => 56,
+                'title' => 'site_setting_show',
+            ],
+            [
+                'id'    => 57,
+                'title' => 'site_setting_delete',
+            ],
+            [
+                'id'    => 58,
+                'title' => 'site_setting_access',
+            ],
+            [
+                'id'    => 59,
                 'title' => 'profile_password_edit',
             ],
         ];

@@ -20,42 +20,22 @@
                 <span class="help-block">{{ trans('cruds.product.fields.name_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="description">{{ trans('cruds.product.fields.description') }}</label>
-                <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" required name="description" id="description">{{ old('description') }}</textarea>
-                @if($errors->has('description'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('description') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.product.fields.description_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label for="categories">{{ trans('cruds.product.fields.category') }}</label>
-                <div style="padding-bottom: 4px">
-                    <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
-                    <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
-                </div>
-                <select class="form-control select2 {{ $errors->has('categories') ? 'is-invalid' : '' }}" name="categories[]" id="categories" multiple required>
+                <label class="required" for="category_id">{{ trans('cruds.product.fields.category') }}</label>
+                <select class="form-control select2 {{ $errors->has('category') ? 'is-invalid' : '' }}" name="category_id" id="category_id" required>
                     @foreach($categories as $id => $category)
-                        <option value="{{ $id }}" {{ in_array($id, old('categories', [])) ? 'selected' : '' }}>{{ $category }}</option>
+                        <option value="{{ $id }}" {{ old('category_id') == $id ? 'selected' : '' }}>{{ $category }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('categories'))
+                @if($errors->has('category'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('categories') }}
+                        {{ $errors->first('category') }}
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.product.fields.category_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="main_photo">Product Image</label> <br>
-                <input type="file" name="photo" id="photo" required>
-
-            </div>
-           
-            <div class="form-group">
-                <label for="price_before">{{ trans('cruds.product.fields.price_before') }}</label>
-                <input class="form-control {{ $errors->has('price_before') ? 'is-invalid' : '' }}" type="number" name="price_before" id="price_before" value="{{ old('price_before', '') }}" step="0.01">
+                <label class="required" for="price_before">{{ trans('cruds.product.fields.price_before') }}</label>
+                <input class="form-control {{ $errors->has('price_before') ? 'is-invalid' : '' }}" type="number" name="price_before" id="price_before" value="{{ old('price_before', '') }}" step="0.01" required>
                 @if($errors->has('price_before'))
                     <div class="invalid-feedback">
                         {{ $errors->first('price_before') }}
@@ -64,27 +44,38 @@
                 <span class="help-block">{{ trans('cruds.product.fields.price_before_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="price_now">{{ trans('cruds.product.fields.price_now') }}</label>
-                <input class="form-control {{ $errors->has('price_now') ? 'is-invalid' : '' }}" type="number" name="price_now" id="price_now" value="{{ old('price_now', '') }}" step="0.01" required>
-                @if($errors->has('price_now'))
+                <label class="required" for="price_after">{{ trans('cruds.product.fields.price_after') }}</label>
+                <input class="form-control {{ $errors->has('price_after') ? 'is-invalid' : '' }}" type="number" name="price_after" id="price_after" value="{{ old('price_after', '') }}" step="0.01" required>
+                @if($errors->has('price_after'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('price_now') }}
+                        {{ $errors->first('price_after') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.product.fields.price_now_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.product.fields.price_after_helper') }}</span>
             </div>
-            {{-- <div class="form-group">
-                <label for="comment">{{ trans('cruds.product.fields.comment') }}</label>
-                <input class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }}" type="number" name="comment" id="comment" value="{{ old('comment', '') }}" step="1">
-                @if($errors->has('comment'))
+            <div class="form-group">
+                <label class="required" for="description">{{ trans('cruds.product.fields.description') }}</label>
+                <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description" required>{{ old('description') }}</textarea>
+                @if($errors->has('description'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('comment') }}
+                        {{ $errors->first('description') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.product.fields.comment_helper') }}</span>
-            </div> --}}
+                <span class="help-block">{{ trans('cruds.product.fields.description_helper') }}</span>
+            </div>
             <div class="form-group">
-                <button class="btn btn-danger btn-lg " type="submit">
+                <label class="required" for="photo">{{ trans('cruds.product.fields.photo') }}</label>
+                <div class="needsclick dropzone {{ $errors->has('photo') ? 'is-invalid' : '' }}" id="photo-dropzone">
+                </div>
+                @if($errors->has('photo'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('photo') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.product.fields.photo_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>
             </div>
@@ -98,9 +89,9 @@
 
 @section('scripts')
 <script>
-    Dropzone.options.mainPhotoDropzone = {
+    Dropzone.options.photoDropzone = {
     url: '{{ route('admin.products.storeMedia') }}',
-    maxFilesize: 2, // MB
+    maxFilesize: 30, // MB
     acceptedFiles: '.jpeg,.jpg,.png,.gif',
     maxFiles: 1,
     addRemoveLinks: true,
@@ -108,136 +99,28 @@
       'X-CSRF-TOKEN': "{{ csrf_token() }}"
     },
     params: {
-      size: 2,
+      size: 30,
       width: 4096,
       height: 4096
     },
     success: function (file, response) {
-      $('form').find('input[name="main_photo"]').remove()
-      $('form').append('<input type="hidden" name="main_photo" value="' + response.name + '">')
+      $('form').find('input[name="photo"]').remove()
+      $('form').append('<input type="hidden" name="photo" value="' + response.name + '">')
     },
     removedfile: function (file) {
       file.previewElement.remove()
       if (file.status !== 'error') {
-        $('form').find('input[name="main_photo"]').remove()
+        $('form').find('input[name="photo"]').remove()
         this.options.maxFiles = this.options.maxFiles + 1
       }
     },
     init: function () {
-@if(isset($product) && $product->main_photo)
-      var file = {!! json_encode($product->main_photo) !!}
+@if(isset($product) && $product->photo)
+      var file = {!! json_encode($product->photo) !!}
           this.options.addedfile.call(this, file)
       this.options.thumbnail.call(this, file, file.preview)
       file.previewElement.classList.add('dz-complete')
-      $('form').append('<input type="hidden" name="main_photo" value="' + file.file_name + '">')
-      this.options.maxFiles = this.options.maxFiles - 1
-@endif
-    },
-    error: function (file, response) {
-        if ($.type(response) === 'string') {
-            var message = response //dropzone sends it's own error messages in string
-        } else {
-            var message = response.errors.file
-        }
-        file.previewElement.classList.add('dz-error')
-        _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
-        _results = []
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            node = _ref[_i]
-            _results.push(node.textContent = message)
-        }
-
-        return _results
-    }
-}
-</script>
-<script>
-    Dropzone.options.photo1Dropzone = {
-    url: '{{ route('admin.products.storeMedia') }}',
-    maxFilesize: 2, // MB
-    acceptedFiles: '.jpeg,.jpg,.png,.gif',
-    maxFiles: 1,
-    addRemoveLinks: true,
-    headers: {
-      'X-CSRF-TOKEN': "{{ csrf_token() }}"
-    },
-    params: {
-      size: 2,
-      width: 4096,
-      height: 4096
-    },
-    success: function (file, response) {
-      $('form').find('input[name="photo_1"]').remove()
-      $('form').append('<input type="hidden" name="photo_1" value="' + response.name + '">')
-    },
-    removedfile: function (file) {
-      file.previewElement.remove()
-      if (file.status !== 'error') {
-        $('form').find('input[name="photo_1"]').remove()
-        this.options.maxFiles = this.options.maxFiles + 1
-      }
-    },
-    init: function () {
-@if(isset($product) && $product->photo_1)
-      var file = {!! json_encode($product->photo_1) !!}
-          this.options.addedfile.call(this, file)
-      this.options.thumbnail.call(this, file, file.preview)
-      file.previewElement.classList.add('dz-complete')
-      $('form').append('<input type="hidden" name="photo_1" value="' + file.file_name + '">')
-      this.options.maxFiles = this.options.maxFiles - 1
-@endif
-    },
-    error: function (file, response) {
-        if ($.type(response) === 'string') {
-            var message = response //dropzone sends it's own error messages in string
-        } else {
-            var message = response.errors.file
-        }
-        file.previewElement.classList.add('dz-error')
-        _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
-        _results = []
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-            node = _ref[_i]
-            _results.push(node.textContent = message)
-        }
-
-        return _results
-    }
-}
-</script>
-<script>
-    Dropzone.options.photo2Dropzone = {
-    url: '{{ route('admin.products.storeMedia') }}',
-    maxFilesize: 2, // MB
-    acceptedFiles: '.jpeg,.jpg,.png,.gif',
-    maxFiles: 1,
-    addRemoveLinks: true,
-    headers: {
-      'X-CSRF-TOKEN': "{{ csrf_token() }}"
-    },
-    params: {
-      size: 2,
-      width: 4096,
-      height: 4096
-    },
-    success: function (file, response) {
-      $('form').find('input[name="photo_2"]').remove()
-      $('form').append('<input type="hidden" name="photo_2" value="' + response.name + '">')
-    },
-    removedfile: function (file) {
-      file.previewElement.remove()
-      if (file.status !== 'error') {
-        $('form').find('input[name="photo_2"]').remove()
-        this.options.maxFiles = this.options.maxFiles + 1
-      }
-    },
-    init: function () {
-@if(isset($product) && $product->photo_2)
-      var file = {!! json_encode($product->photo_2) !!}
-          this.options.addedfile.call(this, file)
-      this.options.thumbnail.call(this, file, file.preview)
-      file.previewElement.classList.add('dz-complete')
-      $('form').append('<input type="hidden" name="photo_2" value="' + file.file_name + '">')
+      $('form').append('<input type="hidden" name="photo" value="' + file.file_name + '">')
       this.options.maxFiles = this.options.maxFiles - 1
 @endif
     },

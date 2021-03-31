@@ -17,9 +17,7 @@ class Product extends Model implements HasMedia
     public $table = 'products';
 
     protected $appends = [
-        'main_photo',
-        'photo_1',
-        'photo_2',
+        'photo',
     ];
 
     protected $dates = [
@@ -30,11 +28,10 @@ class Product extends Model implements HasMedia
 
     protected $fillable = [
         'name',
-        'description',
-        'photo',
+        'category_id',
         'price_before',
-        'price_now',
-        'comment',
+        'price_after',
+        'description',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -51,40 +48,14 @@ class Product extends Model implements HasMedia
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
     }
 
-    public function categories()
+    public function category()
     {
-        return $this->belongsToMany(ProductCategory::class);
+        return $this->belongsTo(ProductSubCategory::class, 'category_id');
     }
 
-    public function getMainPhotoAttribute()
+    public function getPhotoAttribute()
     {
-        $file = $this->getMedia('main_photo')->last();
-
-        if ($file) {
-            $file->url       = $file->getUrl();
-            $file->thumbnail = $file->getUrl('thumb');
-            $file->preview   = $file->getUrl('preview');
-        }
-
-        return $file;
-    }
-
-    public function getPhoto1Attribute()
-    {
-        $file = $this->getMedia('photo_1')->last();
-
-        if ($file) {
-            $file->url       = $file->getUrl();
-            $file->thumbnail = $file->getUrl('thumb');
-            $file->preview   = $file->getUrl('preview');
-        }
-
-        return $file;
-    }
-
-    public function getPhoto2Attribute()
-    {
-        $file = $this->getMedia('photo_2')->last();
+        $file = $this->getMedia('photo')->last();
 
         if ($file) {
             $file->url       = $file->getUrl();

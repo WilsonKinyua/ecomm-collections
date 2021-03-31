@@ -10,31 +10,35 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Users
     Route::apiResource('users', 'UsersApiController');
 
-    // Product Categories
-    Route::post('product-categories/media', 'ProductCategoryApiController@storeMedia')->name('product-categories.storeMedia');
-    Route::apiResource('product-categories', 'ProductCategoryApiController');
+    // Product Main Categories
+    Route::apiResource('product-main-categories', 'ProductMainCategoryApiController');
 
-    // Product Tags
-    Route::apiResource('product-tags', 'ProductTagApiController');
+    // Product Sub Categories
+    Route::apiResource('product-sub-categories', 'ProductSubCategoryApiController');
 
     // Products
-    Route::post('products/media', 'ProductApiController@storeMedia')->name('products.storeMedia');
-    Route::apiResource('products', 'ProductApiController');
+    Route::post('products/media', 'ProductsApiController@storeMedia')->name('products.storeMedia');
+    Route::apiResource('products', 'ProductsApiController');
 
-    // Sliders
-    Route::post('sliders/media', 'SlidersApiController@storeMedia')->name('sliders.storeMedia');
-    Route::apiResource('sliders', 'SlidersApiController');
+    // Reviews
+    Route::apiResource('reviews', 'ReviewsApiController', ['except' => ['store', 'update']]);
 
     // Orders
-    Route::apiResource('orders', 'OrdersApiController', ['except' => ['store', 'show', 'update', 'destroy']]);
+    Route::apiResource('orders', 'OrdersApiController', ['except' => ['store', 'update']]);
 
-    // Homepages
-    Route::post('homepages/media', 'HomepageApiController@storeMedia')->name('homepages.storeMedia');
-    Route::apiResource('homepages', 'HomepageApiController');
+    // Slides
+    Route::post('slides/media', 'SlidesApiController@storeMedia')->name('slides.storeMedia');
+    Route::apiResource('slides', 'SlidesApiController');
 
-    // Comments
-    Route::apiResource('comments', 'CommentsApiController');
+    // Sub Slide Ad Ones
+    Route::post('sub-slide-ad-ones/media', 'SubSlideAdOneApiController@storeMedia')->name('sub-slide-ad-ones.storeMedia');
+    Route::apiResource('sub-slide-ad-ones', 'SubSlideAdOneApiController');
 
-    // Subscribedusers
-    Route::apiResource('subscribedusers', 'SubscribedusersApiController');
+    // Sub Slide Ad Twos
+    Route::post('sub-slide-ad-twos/media', 'SubSlideAdTwoApiController@storeMedia')->name('sub-slide-ad-twos.storeMedia');
+    Route::apiResource('sub-slide-ad-twos', 'SubSlideAdTwoApiController');
+
+    // Site Settings
+    Route::post('site-settings/media', 'SiteSettingsApiController@storeMedia')->name('site-settings.storeMedia');
+    Route::apiResource('site-settings', 'SiteSettingsApiController');
 });

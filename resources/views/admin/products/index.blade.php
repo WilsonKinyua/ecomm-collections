@@ -29,28 +29,19 @@
                             {{ trans('cruds.product.fields.name') }}
                         </th>
                         <th>
-                            {{ trans('cruds.product.fields.description') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.product.fields.category') }}
                         </th>
-                        <th>
-                            {{ trans('cruds.product.fields.main_photo') }}
-                        </th>
-                        {{-- <th>
-                            {{ trans('cruds.product.fields.photo_1') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.product.fields.photo_2') }}
-                        </th> --}}
                         <th>
                             {{ trans('cruds.product.fields.price_before') }}
                         </th>
                         <th>
-                            {{ trans('cruds.product.fields.price_now') }}
+                            {{ trans('cruds.product.fields.price_after') }}
                         </th>
                         <th>
-                            {{ trans('cruds.product.fields.comment') }}
+                            {{ trans('cruds.product.fields.description') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.product.fields.photo') }}
                         </th>
                         <th>
                             &nbsp;
@@ -70,42 +61,23 @@
                                 {{ $product->name ?? '' }}
                             </td>
                             <td>
-                                {{ $product->description ?? '' }}
+                                {{ $product->category->name ?? '' }}
                             </td>
-                            <td>
-                                @foreach($product->categories as $key => $item)
-                                    <span class="badge badge-info">{{ $item->name }}</span>
-                                @endforeach
-                            </td>
-                            <td>
-                                @if($product->photo)
-                                    <a href="{{ asset($product->photo) }}" target="_blank" style="display: inline-block">
-                                        <img style="width: 50px; height: 50px" src="{{ asset($product->photo) }}">
-                                    </a>
-                                @endif
-                            </td>
-                            {{-- <td>
-                                @if($product->photo_1)
-                                    <a href="{{ $product->photo_1->getUrl() }}" target="_blank" style="display: inline-block">
-                                        <img src="{{ $product->photo_1->getUrl('thumb') }}">
-                                    </a>
-                                @endif
-                            </td>
-                            <td>
-                                @if($product->photo_2)
-                                    <a href="{{ $product->photo_2->getUrl() }}" target="_blank" style="display: inline-block">
-                                        <img src="{{ $product->photo_2->getUrl('thumb') }}">
-                                    </a>
-                                @endif
-                            </td> --}}
                             <td>
                                 {{ $product->price_before ?? '' }}
                             </td>
                             <td>
-                                {{ $product->price_now ?? '' }}
+                                {{ $product->price_after ?? '' }}
                             </td>
                             <td>
-                                {{ $product->comment ?? '' }}
+                                {{ $product->description ?? '' }}
+                            </td>
+                            <td>
+                                @if($product->photo)
+                                    <a href="{{ $product->photo->getUrl() }}" target="_blank" style="display: inline-block">
+                                        <img src="{{ $product->photo->getUrl('thumb') }}">
+                                    </a>
+                                @endif
                             </td>
                             <td>
                                 @can('product_show')
@@ -186,7 +158,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-
+  
 })
 
 </script>

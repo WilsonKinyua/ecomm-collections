@@ -21,23 +21,21 @@ class StoreProductRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'categories.*' => [
+            'category_id'  => [
+                'required',
                 'integer',
             ],
-            'categories'   => [
-                'array',
-            ],
-            'photo'   => [
+            'price_before' => [
                 'required',
             ],
-            'price_now'    => [
+            'price_after'  => [
                 'required',
             ],
-            'comment'      => [
-                'nullable',
-                'integer',
-                'min:-2147483648',
-                'max:2147483647',
+            'description'  => [
+                'required',
+            ],
+            'photo'        => [
+                'required',
             ],
         ];
     }

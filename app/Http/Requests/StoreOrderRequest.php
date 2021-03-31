@@ -17,11 +17,26 @@ class StoreOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'quantity' => [
-                'nullable',
+            'customer_name'  => [
+                'string',
+                'required',
+            ],
+            'customer_phone' => [
+                'string',
+                'required',
+            ],
+            'product'        => [
+                'string',
+                'required',
+            ],
+            'quantity'       => [
+                'required',
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
+            ],
+            'product_price'  => [
+                'required',
             ],
         ];
     }

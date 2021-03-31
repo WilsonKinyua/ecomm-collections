@@ -33,35 +33,12 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.product.fields.description') }}
-                        </th>
-                        <td>
-                            {{ $product->description }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.product.fields.category') }}
                         </th>
                         <td>
-                            @foreach($product->categories as $key => $category)
-                                <span class="label label-info">{{ $category->name }}</span>
-                            @endforeach
+                            {{ $product->category->name ?? '' }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.product.fields.main_photo') }}
-                        </th>
-                        <td>
-                            @if($product->photo)
-                                <a href="{{ asset($product->photo) }}" target="_blank" style="display: inline-block">
-                                    <img style="width: 50px; height: 50px" src="{{ asset($product->photo) }}">
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-
                     <tr>
                         <th>
                             {{ trans('cruds.product.fields.price_before') }}
@@ -72,18 +49,30 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.product.fields.price_now') }}
+                            {{ trans('cruds.product.fields.price_after') }}
                         </th>
                         <td>
-                            {{ $product->price_now }}
+                            {{ $product->price_after }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.product.fields.comment') }}
+                            {{ trans('cruds.product.fields.description') }}
                         </th>
                         <td>
-                            {{ $product->comment }}
+                            {{ $product->description }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.product.fields.photo') }}
+                        </th>
+                        <td>
+                            @if($product->photo)
+                                <a href="{{ $product->photo->getUrl() }}" target="_blank" style="display: inline-block">
+                                    <img src="{{ $product->photo->getUrl('thumb') }}">
+                                </a>
+                            @endif
                         </td>
                     </tr>
                 </tbody>

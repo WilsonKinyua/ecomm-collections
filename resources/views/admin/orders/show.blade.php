@@ -25,18 +25,26 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.order.fields.product_name') }}
+                            {{ trans('cruds.order.fields.customer_name') }}
                         </th>
                         <td>
-                            {{ $order->product_name->name ?? '' }}
+                            {{ $order->customer_name }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.order.fields.customer') }}
+                            {{ trans('cruds.order.fields.customer_phone') }}
                         </th>
                         <td>
-                            {{ $order->customer->name ?? '' }}
+                            {{ $order->customer_phone }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.order.fields.product') }}
+                        </th>
+                        <td>
+                            {{ $order->product }}
                         </td>
                     </tr>
                     <tr>
@@ -49,18 +57,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.order.fields.address') }}
+                            {{ trans('cruds.order.fields.product_price') }}
                         </th>
                         <td>
-                            {{ $order->address->address ?? '' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.order.fields.phone') }}
-                        </th>
-                        <td>
-                            {{ $order->phone->phone ?? '' }}
+                            {{ $order->product_price }}
                         </td>
                     </tr>
                 </tbody>
