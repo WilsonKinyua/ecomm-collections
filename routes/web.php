@@ -1,6 +1,9 @@
 <?php
 
-Route::redirect('/', '/login');
+// Route::redirect('/', '/login');
+
+Route::get('/', 'HomePage\HomePageController@index');
+
 Route::get('/home', function () {
     if (session('status')) {
         return redirect()->route('admin.home')->with('status', session('status'));
@@ -82,3 +85,8 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
     }
 });
+
+// filter products by category
+
+Route::get('main/category/{id}','HomePage\HomePageController@show')->name('product.category');
+Route::get('product/{id}','HomePage\HomePageController@productDetails')->name('product.details');

@@ -45,7 +45,7 @@
                 </a>
             </li>
         @endcan
-        @can('sub_slide_ad_one_access')
+        {{-- @can('sub_slide_ad_one_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.sub-slide-ad-ones.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/sub-slide-ad-ones") || request()->is("admin/sub-slide-ad-ones/*") ? "c-active" : "" }}">
                     <i class="fa-fw far fa-image c-sidebar-nav-icon">
@@ -64,7 +64,7 @@
                     {{ trans('cruds.subSlideAdTwo.title') }}
                 </a>
             </li>
-        @endcan
+        @endcan --}}
         @can('site_setting_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.site-settings.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/site-settings") || request()->is("admin/site-settings/*") ? "c-active" : "" }}">
