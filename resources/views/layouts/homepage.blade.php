@@ -65,20 +65,11 @@
         </a>
          </div>
         <div class="search-cate">
-          <select class="selectpicker">
+          {{-- <select class="selectpicker">
             <option> All Categories</option>
             <option> Home Audio & Theater</option>
-            <option> TV & Video</option>
-            <option> Camera, Photo & Video</option>
-            <option> Cell Phones & Accessories</option>
-            <option> Headphones</option>
-            <option> Video Games</option>
-            <option> Bluetooth & Wireless </option>
-            <option> Gaming Console</option>
-            <option> Computers & Tablets</option>
-            <option> Monitors </option>
-          </select>
-          <input type="search" placeholder="Search products...">
+          </select> --}}
+          <input type="search" placeholder="Search product...">
           <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
         </div>
 
@@ -117,17 +108,33 @@
             <div class="cate-bar-in">
               <div id="cater" class="collapse">
                 <ul>
-                  <li><a href="#."> Home Audio & Theater</a></li>
+                  {{-- <li><a href="#."> Home Audio & Theater</a></li>
                   <li><a href="#."> TV & Video</a></li>
-                  <li><a href="#."> Camera, Photo & Video</a></li>
-                  <li class="sub-menu"><a href="#."> Cell Phones & Accessories</a>
+                  <li><a href="#."> Camera, Photo & Video</a></li> --}}
+
+                  @foreach ($maincat1 as $item)
+                  <li class="sub-menu"><a href="#."> {{ $item->name }}</a>
                     <ul>
-                      <li><a href="#."> TV & Video</a></li>
-                      <li><a href="#."> Camera, Photo & Video</a></li>
-                      <li><a href="#."> Cell Phones & Accessories</a>
+                        @foreach ($subcat1 as $item)
+                            <li><a href="{{ route('categ.product', $item->id) }}"> {{ $item->name }} </a></li>
+                        @endforeach
+
                     </ul>
                   </li>
-                  <li><a href="#."> Headphones</a></li>
+                  @endforeach
+
+                  @foreach ($maincat2 as $item)
+                  <li class="sub-menu"><a href="#."> {{ $item->name }}</a>
+                    <ul>
+                        @foreach ($subcat2 as $item)
+                            <li><a href="{{ route('categ.product', $item->id) }}"> {{ $item->name }}</a></li>
+                        @endforeach
+
+                    </ul>
+                  </li>
+                  @endforeach
+
+                  {{-- <li><a href="#."> Headphones</a></li>
                   <li><a href="#."> Video Games</a></li>
                   <li class="sub-menu"><a href="#."> Bluetooth & Wireless Speakers</a>
                     <ul>
@@ -146,7 +153,7 @@
                   <li><a href="#."> Computers & Tablets</a></li>
                   <li><a href="#."> Monitors</a></li>
                   <li><a href="#."> Home Appliances</a></li>
-                  <li><a href="#."> Office Supplies</a></li>
+                  <li><a href="#."> Office Supplies</a></li> --}}
                 </ul>
               </div>
             </div>

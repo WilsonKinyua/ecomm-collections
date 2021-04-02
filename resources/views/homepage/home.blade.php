@@ -5,12 +5,12 @@
 
       <!-- Slid Sec -->
       <section class="slid-sec">
-        <div class="container">
+        <div class="">
           <div class="container-fluid">
             <div class="row">
 
               <!-- Main Slider  -->
-              <div  class="col-md-12">
+              <div  class="col-md-9">
 
                 <!-- Main Slider Start -->
                 <div class="tp-banner-container">
@@ -61,7 +61,7 @@
                               $49.99 </div> --}}
 
                             <!-- LAYER NR. 4 -->
-                            <div class="tp-caption lfb tp-resizeme scroll" data-x="left" data-hoffset="60" data-y="center"
+                            <div style="margin-top: 20px" class="tp-caption lfb tp-resizeme scroll" data-x="left" data-hoffset="60" data-y="center"
                               data-voffset="80" data-speed="800" data-start="1300" data-easing="Power3.easeInOut"
                               data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300" data-scrolloffset="0"
                               style="z-index: 8;"><a href="{{ route('product.category',$item->product_category_id )}}" class="btn-round big">Shop Now</a> </div>
@@ -75,15 +75,15 @@
               </div>
 
               <!-- Main Slider  -->
-              {{-- <div class="col-md-3 no-padding">
+              <div class="col-md-3 no-padding">
 
                 <!-- New line required  -->
                 <div class="product">
                   <div class="like-bnr">
                     <div class="position-center-center">
                       <h5>New line required</h5>
-                      <h4>Smartphone s7</h4>
-                      <span class="price">$259.99</span>
+                      <h4>Simple Category</h4>
+                      <span class="price">Ksh 259.99</span>
                     </div>
                   </div>
                 </div>
@@ -91,11 +91,10 @@
                 <!-- Weekly Slaes  -->
                 <div class="week-sale-bnr">
                   <h4>Weekly <span>Sale!</span></h4>
-                  <p>Saving up to 50% off all online
-                    store items this week.</p>
+                  <p>What to place here</p>
                   <a href="#." class="btn-round">Shop now</a>
                 </div>
-              </div> --}}
+              </div>
             </div>
           </div>
         </div>
@@ -136,7 +135,10 @@
                         <div class="product">
                             <article
                             {{-- style="text-align: center" --}}
-                            > <img class="img-responsive" src="{{ asset('assets/images/item-img-1-1.jpg')}}" alt="">
+                            >
+                            @if($product->photo)
+                                    <img style="height: 250px; width:250px" class="img-responsive" src="{{ $product->photo->getUrl() }}" alt="">
+                            @endif
                               <!-- Content -->
                               <span class="tag">{{ $product->category->name }}</span>
                               <a href="{{ route('product.details',$product->id)}}" class="tittle">{{ $product->name }}</a>

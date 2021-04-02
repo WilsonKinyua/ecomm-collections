@@ -74,7 +74,9 @@
                                       <ul class="slides">
                                         @if($product->photo)
                                             <li>
-                                                <img src="{{ $product->photo->getUrl() }}" alt="">
+                                                <img
+                                                style="height: 300px;"
+                                                 src="{{ $product->photo->getUrl() }}" alt="">
                                             </li>
                                         @endif
                                          <!-- items mirrored twice, total of 12 -->
@@ -152,13 +154,14 @@
                                    <li><a href="#."><i class="fa fa-envelope"></i> Email to a friend</a></li>
                                 </ul> --}}
                                 <!-- Quinty -->
-                               <form action="">
+                               <form action="" method="POST" enctype="multipart/form-data">
+                                   @csrf
                                 <div class="quinty">
                                     <input type="number" value="01">
                                  </div>
-                                 <a href="#." class="btn-round"><i class="icon-basket-loaded margin-right-5 margin-top-5"></i> Add to
+                                 <button type="submit" class="btn-round"><i class="icon-basket-loaded margin-right-5 margin-top-5"></i> Add to
                                     Cart
-                                </a>
+                                </button>
                                </form>
                                <a target="_blank" href="https://wa.me/254729081936?text=Hi%20there%20%F0%9F%91%8B%20Welcome%20to%20Castle%20Homes" class="btn-round margin-top-5">
                                 Need Help? Chat via Whatsapp

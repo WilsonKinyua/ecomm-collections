@@ -25,13 +25,17 @@ class HomePageController extends Controller
         $site = SiteSetting::orderBy('id','desc')->limit(1)->get();
         $maincat = ProductMainCategory::all();
         $subcat = ProductSubCategory::all();
+        $maincat1 = ProductMainCategory::where("id","=",1)->get();
+        $maincat2 = ProductMainCategory::where("id","=",2)->get();
+        $subcat1 = ProductSubCategory::where("main_category_id","=",1)->get();
+        $subcat2 = ProductSubCategory::where("main_category_id","=",2)->get();
         // $kitchencategories = ProductSubCategory::where('id', '=', 2);
 
 
         $slides = Slide::with(['product_category', 'media'])->get();
         $products = Product::all();
 
-        return view('homepage.home',compact('site','maincat','subcat','slides','products'));
+        return view('homepage.home',compact('site','maincat','subcat','slides','products','maincat1','subcat1','maincat2','subcat2'));
     }
 
     public function productDetails($id) {
@@ -41,8 +45,27 @@ class HomePageController extends Controller
         $site = SiteSetting::orderBy('id','desc')->limit(1)->get();
         $maincat = ProductMainCategory::all();
         $subcat = ProductSubCategory::all();
+        $maincat1 = ProductMainCategory::where("id","=",1)->get();
+        $maincat2 = ProductMainCategory::where("id","=",2)->get();
+        $subcat1 = ProductSubCategory::where("main_category_id","=",1)->get();
+        $subcat2 = ProductSubCategory::where("main_category_id","=",2)->get();
 
-        return view('homepage.product-details',compact('product','site','maincat','subcat'));
+        return view('homepage.product-details',compact('product','site','maincat','subcat','maincat1','subcat1','maincat2','subcat2'));
+    }
+
+    public function productCtaegory($id) {
+
+        $products = Product::where('category_id',"=", $id)->get();
+        // general
+        $site = SiteSetting::orderBy('id','desc')->limit(1)->get();
+        $maincat = ProductMainCategory::all();
+        $subcat = ProductSubCategory::all();
+        $maincat1 = ProductMainCategory::where("id","=",1)->get();
+        $maincat2 = ProductMainCategory::where("id","=",2)->get();
+        $subcat1 = ProductSubCategory::where("main_category_id","=",1)->get();
+        $subcat2 = ProductSubCategory::where("main_category_id","=",2)->get();
+
+        return view("homepage.product-list",compact('products','site','maincat','subcat','maincat1','subcat1','maincat2','subcat2'));
     }
     /**
      * Show the form for creating a new resource.

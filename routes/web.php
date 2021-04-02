@@ -90,3 +90,4 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
 
 Route::get('main/category/{id}','HomePage\HomePageController@show')->name('product.category');
 Route::get('product/{id}','HomePage\HomePageController@productDetails')->name('product.details');
+Route::get("category/{id}","HomePage\HomePageController@productCtaegory")->name('categ.product');

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-@can('product_main_category_create')
+{{-- @can('product_main_category_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route('admin.product-main-categories.create') }}">
@@ -8,7 +8,7 @@
             </a>
         </div>
     </div>
-@endcan
+@endcan --}}
 <div class="card">
     <div class="card-header">
         {{ trans('cruds.productMainCategory.title_singular') }} {{ trans('global.list') }}
@@ -58,13 +58,13 @@
                                     </a>
                                 @endcan
 
-                                @can('product_main_category_delete')
+                                {{-- @can('product_main_category_delete')
                                     <form action="{{ route('admin.product-main-categories.destroy', $productMainCategory->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
                                     </form>
-                                @endcan
+                                @endcan --}}
 
                             </td>
 
@@ -124,7 +124,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>
