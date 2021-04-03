@@ -171,11 +171,21 @@ class HomePageController extends Controller
 
     public function show($id) {
 
+        // $maincat = ProductMainCategory::findOrFail();
         $categories = ProductSubCategory::where('main_category_id',"=", $id)->get();
+        // general
+        $site = SiteSetting::orderBy('id','desc')->limit(1)->get();
+        $maincat = ProductMainCategory::all();
+        $subcat = ProductSubCategory::all();
+        $maincat1 = ProductMainCategory::where("id","=",1)->get();
+        $maincat2 = ProductMainCategory::where("id","=",2)->get();
+        $subcat1 = ProductSubCategory::where("main_category_id","=",1)->get();
+        $subcat2 = ProductSubCategory::where("main_category_id","=",2)->get();
+        // $products = Product::where('category_id','=', $categories)->get();
 
-        $products = Product::where('category_id','=', $categories)->get();
+        // print_r(json_encode($categories));
 
-        print_r(json_encode($products));
+        return view("homepage.categories",compact("categories",'site','maincat','subcat','maincat1','subcat1','maincat2','subcat2'));
     }
 
 }
