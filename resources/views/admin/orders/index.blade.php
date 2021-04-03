@@ -24,6 +24,12 @@
                             {{ trans('cruds.order.fields.customer_phone') }}
                         </th>
                         <th>
+                            Address
+                        </th>
+                        <th>
+                           Email
+                        </th>
+                        <th>
                             {{ trans('cruds.order.fields.product') }}
                         </th>
                         <th>
@@ -51,6 +57,12 @@
                             </td>
                             <td>
                                 {{ $order->customer_phone ?? '' }}
+                            </td>
+                            <td>
+                                {{ $order->address ?? '' }}
+                            </td>
+                            <td>
+                                {{ $order->email ?? '' }}
                             </td>
                             <td>
                                 {{ $order->product ?? '' }}
@@ -135,7 +147,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

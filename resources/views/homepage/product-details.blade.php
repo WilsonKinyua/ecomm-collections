@@ -43,7 +43,7 @@
                        <div class="product">
                           <div class="row">
                              <!-- Slider Thumb -->
-                             <div class="col-xs-5">
+                             <div class="col-xs-5 col-md-12">
                                 <article class="slider-item on-nav">
                                    <!-- <div id="slider" class="thumb-slider">
                                          <ul class="slides">
@@ -154,10 +154,11 @@
                                    <li><a href="#."><i class="fa fa-envelope"></i> Email to a friend</a></li>
                                 </ul> --}}
                                 <!-- Quinty -->
-                               <form action="" method="POST" enctype="multipart/form-data">
+                               <form action="{{ route('cart.product')}}" method="POST" enctype="multipart/form-data">
                                    @csrf
                                 <div class="quinty">
-                                    <input type="number" value="01">
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                    <input type="number"  name="quantity" value="01">
                                  </div>
                                  <button type="submit" class="btn-round"><i class="icon-basket-loaded margin-right-5 margin-top-5"></i> Add to
                                     Cart

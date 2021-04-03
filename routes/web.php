@@ -91,3 +91,8 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
 Route::get('main/category/{id}','HomePage\HomePageController@show')->name('product.category');
 Route::get('product/{id}','HomePage\HomePageController@productDetails')->name('product.details');
 Route::get("category/{id}","HomePage\HomePageController@productCtaegory")->name('categ.product');
+Route::get('cart',"HomePage\HomePageController@viewCart")->name("view.cart");
+Route::get('cart/remove/{id}','HomePage\HomePageController@removeCart')->name('cart.remove');
+Route::post("cart/add",'HomePage\HomePageController@addCart')->name('cart.product');
+Route::get('confirmation','HomePage\HomePageController@confirmation')->name('order.confirmation');
+Route::post('confirmation/place-order','HomePage\HomePageController@placeOrder')->name('place.order');

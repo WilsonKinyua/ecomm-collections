@@ -76,23 +76,24 @@
         <!-- Cart Part -->
         <ul class="nav navbar-right cart-pop">
           <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-              aria-haspopup="true" aria-expanded="false"><span class="itm-cont">3</span> <i
+              aria-haspopup="true" aria-expanded="false"><span class="itm-cont">{{  Cart::getContent()->count() }}</span> <i
                 class="flaticon-shopping-bag"></i> <strong>My Cart</strong> <br>
-              <span>3 item(s) - $500.00</span></a>
+              <span>{{ $cartCollection = Cart::getContent()->count() }} item(s) - Ksh {{ Cart::getTotal() }}</span></a>
             <ul class="dropdown-menu">
-              <li>
-                <div class="media-left"> <a href="#." class="thumb"> <img src="{{ asset('assets/images/item-img-1-1.jpg')}}"
-                      class="img-responsive" alt=""> </a> </div>
-                <div class="media-body"> <a href="#." class="tittle">Funda Para Ebook 7" 128GB full HD</a> <span>250 x
-                    1</span> </div>
-              </li>
-              <li>
-                <div class="media-left"> <a href="#." class="thumb"> <img src="{{ asset('assets/images/item-img-1-2.jpg')}}"
-                      class="img-responsive" alt=""> </a> </div>
-                <div class="media-body"> <a href="#." class="tittle">Funda Para Ebook 7" full HD</a> <span>250 x
-                    1</span> </div>
-              </li>
-              <li class="btn-cart"> <a href="#." class="btn-round">View Cart</a> </li>
+                @foreach (Cart::getContent() as $item)
+                <li>
+                    {{-- <div class="media-left">
+                        <a href="{{ route('product.details', $item->id )}}" class="thumb">
+                        <img src="{{ asset('assets/images/item-img-1-1.jpg')}}" class="img-responsive" alt=""> </a>
+                    </div> --}}
+                    <div class="media-body"> <a href="{{ route('product.details', $item->id )}}" class="tittle">{{ $item->name }}</a> <span>
+                        Quantity - {{ $item->quantity }}
+                    </span> </div>
+                  </li>
+                @endforeach
+
+
+              <li class="btn-cart"> <a href="{{ route('view.cart') }}" class="btn-round">View Cart</a> </li>
             </ul>
           </li>
         </ul>
@@ -170,9 +171,9 @@
 
               <li class="dropdown"> <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Pages </a>
                 <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf">
-                  <li><a href=""> Login </a></li>
-                  <li><a href=""> Register </a></li>
-                  <li><a href=""> Cart</a></li>
+                  {{-- <li><a href=""> Login </a></li>
+                  <li><a href=""> Register </a></li> --}}
+                  <li><a href="{{ route('view.cart') }}"> Cart</a></li>
                   {{-- <li><a href="GridProducts_3Columns.html"> Products 3 Columns </a></li>
                   <li><a href="GridProducts_4Columns.html"> Products 4 Columns </a></li>
                   <li><a href="ListProducts.html"> List Products </a></li>

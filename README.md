@@ -1,4 +1,4 @@
 
 ## Castle Homes
 
-Ecommerce website
+Ecommerce website with admin area
