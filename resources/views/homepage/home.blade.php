@@ -10,7 +10,7 @@
             <div class="row">
 
               <!-- Main Slider  -->
-              <div  class="col-md-9">
+              <div  class="col-md-12">
 
                 <!-- Main Slider Start -->
                 <div class="tp-banner-container">
@@ -18,7 +18,7 @@
                     <ul>
 
                         @foreach ($slides as $item)
-                        <li data-transition="random" data-slotamount="7" data-masterspeed="300" data-saveperformance="off">
+                        <li style="margin-top: 50px" data-transition="random" data-slotamount="7" data-masterspeed="300" data-saveperformance="off">
                             <!-- MAIN IMAGE -->
                             @if($item->photo)
                                     {{-- <a href="{{ $slide->photo->getUrl() }}" target="_blank" style="display: inline-block">
@@ -74,7 +74,7 @@
                 </div>
               </div>
 
-              <!-- Main Slider  -->
+              {{-- <!-- Main Slider  -->
               <div class="col-md-3 no-padding">
 
                 <!-- New line required  -->
@@ -94,7 +94,7 @@
                   <p>What to place here</p>
                   <a href="#." class="btn-round">Shop now</a>
                 </div>
-              </div>
+              </div> --}}
             </div>
           </div>
         </div>
@@ -149,7 +149,7 @@
                                   Review(s)</span> --}}
                                 </p>
                               <div class="price">Ksh {{ $product->price_after}} </div>
-                              <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
+                              <a href="{{ route('product.details',$product->id)}}" class="cart-btn"><i class="icon-basket-loaded"></i></a>
                             </article>
                           </div>
                       </div>

@@ -69,8 +69,11 @@
             <option> All Categories</option>
             <option> Home Audio & Theater</option>
           </select> --}}
-          <input type="search" placeholder="Search product...">
-          <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
+          <form action="{{ route('product.search')}}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="search" placeholder="Search product..." name="q">
+            <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
+          </form>
         </div>
 
         <!-- Cart Part -->
@@ -255,7 +258,7 @@
             <h4>Sub-Categories</h4>
             <ul class="links-footer">
                 @foreach ($subcat as $item)
-                    <li><a href="#.">{{ $item->name }}</a></li>
+                    <li><a href="{{ route('categ.product', $item->id) }}">{{ $item->name }}</a></li>
                 @endforeach
             </ul>
           </div>

@@ -96,3 +96,4 @@ Route::get('cart/remove/{id}','HomePage\HomePageController@removeCart')->name('c
 Route::post("cart/add",'HomePage\HomePageController@addCart')->name('cart.product');
 Route::get('confirmation','HomePage\HomePageController@confirmation')->name('order.confirmation');
 Route::post('confirmation/place-order','HomePage\HomePageController@placeOrder')->name('place.order');
+Route::post('search','HomePage\HomePageController@searchProduct')->name('product.search');

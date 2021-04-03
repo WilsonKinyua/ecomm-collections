@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-@can('slide_create')
+{{-- @can('slide_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route('admin.slides.create') }}">
@@ -8,7 +8,7 @@
             </a>
         </div>
     </div>
-@endcan
+@endcan --}}
 <div class="card">
     <div class="card-header">
         {{ trans('cruds.slide.title_singular') }} {{ trans('global.list') }}
@@ -68,13 +68,13 @@
                                     </a>
                                 @endcan
 
-                                @can('slide_delete')
+                                {{-- @can('slide_delete')
                                     <form action="{{ route('admin.slides.destroy', $slide->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
                                     </form>
-                                @endcan
+                                @endcan --}}
 
                             </td>
 
@@ -134,7 +134,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

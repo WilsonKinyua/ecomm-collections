@@ -142,7 +142,40 @@ class HomePageController extends Controller
         }
 
         \Cart::clear();
-        
+
         return redirect()->back();
     }
+
+    public function searchProduct(Request $request) {
+
+        // Get the search value from the request
+        $search = $request->input('q');
+
+        // Search in the name and description columns from the products table
+        $products = Product::query()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->orWhere('description', 'LIKE', "%{$search}%")
+            ->get();
+
+        // general
+        $site = SiteSetting::orderBy('id','desc')->limit(1)->get();
+        $maincat = ProductMainCategory::all();
+        $subcat = ProductSubCategory::all();
+        $maincat1 = ProductMainCategory::where("id","=",1)->get();
+        $maincat2 = ProductMainCategory::where("id","=",2)->get();
+        $subcat1 = ProductSubCategory::where("main_category_id","=",1)->get();
+        $subcat2 = ProductSubCategory::where("main_category_id","=",2)->get();
+
+        return view('homepage.search',compact('products','site','maincat','subcat','maincat1','subcat1','maincat2','subcat2'));
+    }
+
+    public function show($id) {
+
+        $categories = ProductSubCategory::where('main_category_id',"=", $id)->get();
+
+        $products = Product::where('category_id','=', $categories)->get();
+
+        print_r(json_encode($products));
+    }
+
 }
