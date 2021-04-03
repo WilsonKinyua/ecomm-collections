@@ -41,6 +41,26 @@
               <!-- Your information -->
               <div class="heading">
                 <h2>Your information</h2>
+                <div class="row">
+                    <div class="col-md-12">
+                     @if(session('success'))
+                     <div class="row mb-2">
+                         <div class="col-lg-12">
+                             <div class="alert alert-success" role="alert">{{ session('success') }}</div>
+                         </div>
+                     </div>
+                     @endif
+                     @if($errors->count() > 0)
+                         <div class="alert alert-danger">
+                             <ul class="list-unstyled">
+                                 @foreach($errors->all() as $error)
+                                     <li>{{ $error }}</li>
+                                 @endforeach
+                             </ul>
+                         </div>
+                     @endif
+                    </div>
+                </div>
                 <hr>
               </div>
               <form action="{{ route("place.order") }}" method="POST" enctype="multipart/form-data">

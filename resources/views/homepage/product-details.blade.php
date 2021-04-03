@@ -17,6 +17,35 @@
         <!-- Products -->
         <section class="padding-top-40 padding-bottom-60">
            <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                 @if(session('message'))
+                 <div class="row mb-2">
+                     <div class="col-lg-12">
+                         <div class="alert alert-success" role="alert">{{ session('message') }}</div>
+                     </div>
+                 </div>
+                 @endif
+                 @if(session('danger'))
+                 <div class="row mb-2">
+                     <div class="col-lg-12">
+                         <div class="alert alert-danger" role="alert">{{ session('danger') }}</div>
+                     </div>
+                 </div>
+                 @endif
+                 @if($errors->count() > 0)
+                     <div class="alert alert-danger">
+                         <ul class="list-unstyled">
+                             @foreach($errors->all() as $error)
+                                 <li>{{ $error }}</li>
+                             @endforeach
+                         </ul>
+                     </div>
+                 @endif
+                </div>
+                <div class="col-md-4"></div>
+            </div>
               <div class="row">
                  <!-- Shop Side Bar -->
                  <div class="col-md-3">
@@ -160,19 +189,19 @@
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input type="number"  name="quantity" value="01">
                                  </div>
-                                 <button type="submit" class="btn-round"><i class="icon-basket-loaded margin-right-5 margin-top-5"></i> Add to
+                                 <button style="margin-top: 10px" type="submit" class="btn-round"><i class="icon-basket-loaded margin-right-5 margin-top-5"></i> Add to
                                     Cart
                                 </button>
                                </form>
                                <a target="_blank" href="https://wa.me/254729081936?text=Hi%20there%20%F0%9F%91%8B%20Welcome%20to%20Castle%20Homes" class="btn-round margin-top-5">
                                 Need Help? Chat via Whatsapp
                                 </a> <br>
-                                {{-- <a href="#." class="btn-round margin-top-5">
+                                <a href="tel:+254717180525" class="btn-round margin-top-5">
                                     CALL TO ORDER(CAROLYNE)
+                                </a> <br>
+                                <a href="tel:+254729081936" class="btn-round margin-top-5">
+                                    CALL TO ORDER (FIONA)
                                 </a>
-                                <a href="#." class="btn-round margin-top-5">
-                                    CALL TO ORDER(FIONA)
-                                </a> --}}
                              </div>
                           </div>
                        </div>

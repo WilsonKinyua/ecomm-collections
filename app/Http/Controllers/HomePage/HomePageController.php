@@ -82,7 +82,7 @@ class HomePageController extends Controller
             'attributes' => array()
         ));
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Item added to cart successfully');
     }
 
     public function viewCart() {
@@ -103,7 +103,7 @@ class HomePageController extends Controller
 
         $cart = \Cart::remove($id);
 
-        return redirect()->back();
+        return redirect()->back()->with('danger', 'Item remove to cart successfully');
     }
 
     public function confirmation() {
@@ -143,7 +143,7 @@ class HomePageController extends Controller
 
         \Cart::clear();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Order created successfully. Your will receive a call shortly from us to confirm order!!');
     }
 
     public function searchProduct(Request $request) {
