@@ -68,7 +68,9 @@
                       <div class="price">Ksh {{ $item->price_after }}
                         {{-- <span>Ksh {{ $item->price_before }}</span> --}}
                     </div>
-                      <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
+                      <a href="#." class="cart-btn">
+                          {{-- <i class="icon-basket-loaded"></i> --}}
+                        </a>
                     </article>
                   </div>
                   @endforeach

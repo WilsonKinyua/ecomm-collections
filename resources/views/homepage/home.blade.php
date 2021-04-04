@@ -36,13 +36,20 @@
                               data-endspeed="300"
                               style="z-index: 5; font-size:30px; font-weight:500; color:#888888;  max-width: auto; max-height: auto; white-space: nowrap;">
                               High Quality VR Glasses </div> --}}
-
+                              {{-- <h2 style="
+                              background: rgb(238,174,202);
+                              background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(0,223,255,1) 0%);
+                              font-size: 40px !important;
+                              font-weight: 900;
+                              font-style: italic;
+                              " class="banner-title mb-0 text-uppercase ls-l">HOUSEHOLDS </h2> --}}
                             <!-- LAYER NR. 2 -->
                             <div class="tp-caption sfr tp-resizeme" data-x="left" data-hoffset="60" data-y="center"
                               data-voffset="-60" data-speed="800" data-start="1000" data-easing="Power3.easeInOut"
                               data-splitin="chars" data-splitout="none" data-elementdelay="0.03" data-endelementdelay="0.1"
                               data-endspeed="300"
-                              style="z-index: 6; font-size:50px; color:#0088cc; font-weight:800; white-space: nowrap;"> {{ $item->product_category->name }} </div>
+                              style="z-index: 6; font-size:50px;  color: rgb(255, 0, 0);
+                              font-weight:800; white-space: nowrap;"> {{ $item->product_category->name }} </div>
 
                             {{-- <!-- LAYER NR. 3 -->
                             <div class="tp-caption sfl tp-resizeme" data-x="left" data-hoffset="60" data-y="center"
@@ -149,7 +156,9 @@
                                   Review(s)</span> --}}
                                 </p>
                               <div class="price">Ksh {{ $product->price_after}} </div>
-                              <a href="{{ route('product.details',$product->id)}}" class="cart-btn"><i class="icon-basket-loaded"></i></a>
+                              <a href="{{ route('product.details',$product->id)}}" class="cart-btn">
+                                <i class="icon-basket-loaded"></i>
+                            </a>
                             </article>
                           </div>
                       </div>

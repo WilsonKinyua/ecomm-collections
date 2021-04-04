@@ -44,33 +44,40 @@
                 </div>
                 <!-- Items -->
                 <div class="item-col-4">
-                  <!-- Product -->
-                  @foreach ($products as $item)
-                  <div class="product">
-                    <article>
-                        @if($item->photo)
-                            <img
-                            style="height: 190px; width:190px"
-                             class="img-responsive" src="{{ $item->photo->getUrl() }}" alt="">
-                        @endif
-                         {{-- <span
-                        class="sale-tag">-25%</span> --}}
+                    @if (count($products) > 0)
+                    @foreach ($products as $item)
+                    <div class="product">
+                      <article>
+                          @if($item->photo)
+                              <img
+                              style="height: 190px; width:190px"
+                               class="img-responsive" src="{{ $item->photo->getUrl() }}" alt="">
+                          @endif
+                           {{-- <span
+                          class="sale-tag">-25%</span> --}}
 
-                      <!-- Content -->
-                      <span class="tag">{{ $item->category->name }}</span> <a href="{{ route('product.details',$item->id)}}" class="tittle">{{ $item->name }}</a>
-                      <!-- Reviews -->
-                      <p class="rev">
-                          {{-- <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
-                          class="fa fa-star"></i> <i class="fa fa-star"></i> <span class="margin-left-10">5
-                          Review(s)</span> --}}
-                        </p>
-                      <div class="price">Ksh {{ $item->price_after }}
-                        {{-- <span>Ksh {{ $item->price_before }}</span> --}}
+                        <!-- Content -->
+                        <span class="tag">{{ $item->category->name }}</span> <a href="{{ route('product.details',$item->id)}}" class="tittle">{{ $item->name }}</a>
+                        <!-- Reviews -->
+                        <p class="rev">
+                            {{-- <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i
+                            class="fa fa-star"></i> <i class="fa fa-star"></i> <span class="margin-left-10">5
+                            Review(s)</span> --}}
+                          </p>
+                        <div class="price">Ksh {{ $item->price_after }}
+                          {{-- <span>Ksh {{ $item->price_before }}</span> --}}
+                      </div>
+                        <a href="#." class="cart-btn">
+                            {{-- <i class="icon-basket-loaded"></i> --}}
+                          </a>
+                      </article>
                     </div>
-                      <a href="#." class="cart-btn"><i class="icon-basket-loaded"></i></a>
-                    </article>
-                  </div>
-                  @endforeach
+                    @endforeach
+                    @else
+                            <p style="text-align: center; color:red">No products in the selected category!!</p>
+                    @endif
+                  <!-- Product -->
+
 
 
                 </div>

@@ -189,7 +189,9 @@
                                     <input type="hidden" name="product_id" value="{{ $product->id }}">
                                     <input type="number"  name="quantity" value="01">
                                  </div>
-                                 <button style="margin-top: 10px" type="submit" class="btn-round"><i class="icon-basket-loaded margin-right-5 margin-top-5"></i> Add to
+                                 <button style="margin-top: 10px" type="submit" class="btn-round">
+                                    <i class="icon-basket-loaded margin-right-5 margin-top-5"></i>
+                                     Add to
                                     Cart
                                 </button>
                                </form>
