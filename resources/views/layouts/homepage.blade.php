@@ -314,7 +314,7 @@
 <script type="text/javascript">
     (function () {
     var options = {
-    whatsapp: "+254 729 081936", // WhatsApp number
+    whatsapp: "+254 717 180525", // WhatsApp number
     call_to_action: "Hi there 👋 Welcome to {{ trans('panel.site_title') }}", // Call to action
     position: "left", // Position may be 'right' or 'left'
     pre_filled_message: "Hi there 👋 Welcome to {{ trans('panel.site_title') }}", // WhatsApp pre-filled message

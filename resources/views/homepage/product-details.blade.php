@@ -226,6 +226,33 @@
                              <div role="tabpanel" class="tab-pane fade" id="cus-rev">
                                 4G bands: LTE 700 / 800 / 850<br>
                                 900 / 1800 / 1900 / 2100 / 2600
+                                {{-- <div class="row">
+                                    <div class="col-md-6">
+                                        <form action="{{ route("place.order") }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            <div class="row">
+
+                                              <!-- Name -->
+                                              <div class="col-sm-12">
+                                                <label> Full name
+                                                  <input class="form-control" type="text" name="customer_name" placeholder="John Doe">
+                                                </label>
+                                              </div>
+                                              <!-- Number -->
+                                              <div class="col-sm-12">
+                                                <label> Email
+                                                  <input class="form-control" type="email" name="email" placeholder="john@doe.com">
+                                                </label>
+                                              </div>
+                                              <div class="col-sm-12">
+                                                <label> Message
+                                                 <textarea class="form-control" name="" id="" cols="60" rows="10"></textarea>
+                                                </label>
+                                              </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div> --}}
                              </div>
                              <div role="tabpanel" class="tab-pane fade" id="ship"></div>
                           </div>
