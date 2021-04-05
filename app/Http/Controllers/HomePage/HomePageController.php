@@ -35,7 +35,7 @@ class HomePageController extends Controller
 
 
         $slides = Slide::with(['product_category', 'media'])->get();
-        $products = Product::all();
+        $products = Product::where('category_id','=',21)->get();
 
         return view('homepage.home',compact('site','maincat','subcat','slides','products','maincat1','subcat1','maincat2','subcat2'));
     }

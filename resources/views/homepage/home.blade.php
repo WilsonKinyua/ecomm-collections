@@ -115,13 +115,13 @@
 
 
         <!-- tab Section -->
-        <section class="featur-tabs padding-top-60 padding-bottom-60">
+        <section id="myDiv" class="featur-tabs padding-top-60 padding-bottom-60">
           <div class="container">
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs nav-pills margin-bottom-40" role="tablist">
               <li role="presentation" class="active"><a href="#featur" aria-controls="featur" role="tab"
-                  data-toggle="tab">TRENDY HOUSE HOLDS & KITCHENWARE</a></li>
+                  data-toggle="tab">Deals Of The Week</a></li>
               {{-- <li role="presentation"><a href="#special" aria-controls="special" role="tab" data-toggle="tab">Special</a>
               </li>
               <li role="presentation"><a href="#on-sal" aria-controls="on-sal" role="tab" data-toggle="tab">Onsale</a>
@@ -136,15 +136,32 @@
                 <div class=" with-nav">
                   <!-- Product -->
                   <div class="row">
-
+                    <style>
+                        .mg {
+                            height: 250px;
+                            width:  250px;
+                        }
+                        @media (max-width:767px) {
+                            .mg {
+                                height: 150px;
+                                width:  150px;
+                            }
+                        }
+                        @media (max-width: 992px){
+                            .mg {
+                                    height: 150px;
+                                    width:  150px;
+                                }
+                        }
+                    </style>
                     @foreach ($products as $product)
-                    <div style="margin-top: 10px" class="col-md-3">
+                    <div style="margin-top: 10px" class="col-md-3 col-xs-6">
                         <div class="product">
                             <article
                             {{-- style="text-align: center" --}}
                             >
                             @if($product->photo)
-                                    <img style="height: 250px; width:250px" class="img-responsive" src="{{ $product->photo->getUrl() }}" alt="">
+                                    <img class="img-responsive mg" src="{{ $product->photo->getUrl() }}" alt="">
                             @endif
                               <!-- Content -->
                               <span class="tag">{{ $product->category->name }}</span>

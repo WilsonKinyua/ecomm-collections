@@ -26,7 +26,8 @@
   <!-- Fonts Online -->
   <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
     rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 
   <!-- JavaScripts -->
   <script src="{{ asset('assets/js/vendors/modernizr.js')}}"></script>
@@ -61,7 +62,7 @@
       <div class="container">
         <div class="logo"> <a href="/">
             {{-- <img src="{{ asset('assets/images/logo.png')}}" alt=""> --}}
-            <h4 style="font-weight: 900; text-transform:uppercase">{{ trans('panel.site_title') }}</h4>
+            <h4 style="font-weight: 900; text-transform:uppercase; font-family: 'Kaushan Script', cursive; color:#0088cc; letter-spacing:1px; text-align:center;">{{ trans('panel.site_title') }}</h4>
         </a>
          </div>
         <div class="search-cate">
@@ -137,7 +138,7 @@
                     </ul>
                   </li>
                   @endforeach
-
+                  <li><a id="dealofday"> Deals Of The Week </a></li>
                   {{-- <li><a href="#."> Headphones</a></li>
                   <li><a href="#."> Video Games</a></li>
                   <li class="sub-menu"><a href="#."> Bluetooth & Wireless Speakers</a>
@@ -346,9 +347,9 @@
     (function () {
     var options = {
     whatsapp: "+254 717 180525", // WhatsApp number
-    call_to_action: "Hi there 👋  Thank you for contacting Castle Homes! Please let us know how we can help you.", // Call to action
+    call_to_action: "Hi👋Thank you for contacting Castle Homes!....", // Call to action
     position: "left", // Position may be 'right' or 'left'
-    pre_filled_message: "Hi there 👋  Thank you for contacting Castle Homes! Please let us know how we can help you.", // WhatsApp pre-filled message
+    pre_filled_message: "Hi👋Thank you for contacting Castle Homes!...", // WhatsApp pre-filled message
     };
     var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
     var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
@@ -369,6 +370,13 @@
   <script type="text/javascript" src="{{ asset('assets/rs-plugin/js/jquery.tp.t.min.js')}}"></script>
   <script type="text/javascript" src="{{ asset('assets/rs-plugin/js/jquery.tp.min.js')}}"></script>
   <script src="{{ asset('assets/js/main.js')}}"></script>
+  <script>
+      $("#dealofday").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#myDiv").offset().top
+        }, 2000);
+    });
+  </script>
 </body>
 
 

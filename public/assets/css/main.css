@@ -838,7 +838,7 @@ header .ownmenu .nav ul.dropdown-menu .indicator {
 .flex-direction-nav a:before {
 	font-family:'FontAwesome';
 	font-size: 20px;
-	width:100%;	
+	width:100%;
 	text-align:center;
 	display: inline-block;
 	content: '\f104';
@@ -2919,7 +2919,7 @@ header .navbar {
 	text-align: center;
 	width: 100%;
 	float: none;
-	margin-top: 40px;
+	margin-top: 10px;
 }
 header .nav {
 	padding: 0px;
@@ -5196,7 +5196,7 @@ header.header-style-5 .navbar li a:before {
 	margin-top: 40px !important;
 }
 .margin-bottom-40 {
-	margin-bottom: 40px !important;
+	/* margin-bottom: 40px !important; */
 }
 .padding-40 {
 	padding: 40px !important;
@@ -5808,7 +5808,7 @@ header.header-style-5 .navbar li a:before {
 	padding-right: 60px !important;
 }
 .padding-top-60 {
-	padding-top: 60px !important;
+	/* padding-top: 10px !important; */
 }
 .padding-bottom-60 {
 	padding-bottom: 60px !important;
