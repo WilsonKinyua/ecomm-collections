@@ -13,12 +13,12 @@
              <div class="col-md-4">
                 <div class="shop-side-bar">
                    <!-- Categories -->
-                   <h6 style="color: red">Please Select Category to view Product</h6>
+                   <h6 style="color: red; margin-left:5px">Please Select Category to view Product</h6>
                    <div class=" checkbox-primary">
                       <ul>
                         @foreach ($categories as $cat)
                         <li>
-                            <label for="cate1"> <a style="text-align: center !important; background-color:blue" class="btn" href="{{ route('categ.product', $cat->id) }}">{{ $cat->name }}</a></label>
+                            <label for="cate1"> <a style="text-align: center !important; background-color:#0a95da" class="btn" href="{{ route('categ.product', $cat->id) }}">{{ $cat->name }}</a></label>
                          </li>
                         @endforeach
                       </ul>
