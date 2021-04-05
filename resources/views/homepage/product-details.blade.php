@@ -7,7 +7,7 @@
         <div class="container">
            <ol class="breadcrumb">
               <li><a href="/">Home</a></li>
-              <li><a href="#">{{ $product->category->name }}</a></li>
+              {{-- <li><a href="#">{{ $product->category->name }}</a></li> --}}
               <li class="active">{{ $product->name }}</li>
            </ol>
         </div>
@@ -48,7 +48,7 @@
             </div>
               <div class="row">
                  <!-- Shop Side Bar -->
-                 <div class="col-md-3">
+                 {{-- <div class="col-md-3">
                     <div class="shop-side-bar">
                        <!-- Categories -->
                        <h6>Categories</h6>
@@ -56,7 +56,7 @@
                           <ul>
                               @foreach ($subcat as $item)
                               <li>
-                                {{-- <input id="cate1" class="styled" type="checkbox"> --}}
+                                <input id="cate1" class="styled" type="checkbox">
                                 <label for="cate1"> {{ $item->name }} </label>
                              </li>
                               @endforeach
@@ -65,9 +65,9 @@
                        </div>
                        <!-- Categories -->
                     </div>
-                 </div>
+                 </div> --}}
                  <!-- Products -->
-                 <div class="col-md-9">
+                 <div class="col-md-12">
                     <div class="product-detail">
                        <div class="product">
                           <div class="row">

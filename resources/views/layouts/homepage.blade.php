@@ -217,33 +217,64 @@
 
 
     <!-- Footer -->
-    <footer style="margin-top: 40px">
+    <footer style="margin-top: 40px; background-color:black">
       <div class="container ">
 
         <div class="row">
 
           <!-- Contact -->
           <div class="col-md-4">
-            <h4>Contact {{ trans('panel.site_title') }}!</h4>
+            <h4 style="
+            color: white;
+            margin-left:40px;
+            text-transform:uppercase;
+            font-weight:900;
+            ">Contact Info</h4>
 
             @foreach ($site as $item)
 
-                <p>Address: {{ $item->location }}</p>
-                <p>Working Hours: {{ $item->open_hours }}</p>
-                <p>Phone: {{ $item->support_phone_1 }} / {{ $item->support_phone_2 }}</p>
-                <p>Email: {{ $item->email }}</p>
+                <p style="color: rgb(179, 177, 177)"> <span style="
+            color: white;
+            margin-left:40px;
+            text-transform:uppercase;
+            font-weight:500; margin-right:10px;
+            ">Address:</span>  {{ $item->location }}</p>
+                <p style="color: rgb(179, 177, 177)"> <span style="
+            color: white;
+            margin-left:40px;
+            text-transform:uppercase;
+            font-weight:500; margin-right:10px;
+            ">Working Hours:</span>  {{ $item->open_hours }}</p>
+                <p style="color: rgb(179, 177, 177)"><span style="
+            color: white;
+            margin-left:40px;
+            text-transform:uppercase;
+            font-weight:500; margin-right:10px;
+            ">Phone:</span>  {{ $item->support_phone_1 }} / {{ $item->support_phone_2 }}</p>
+                <p style="color: rgb(179, 177, 177)"><span style="
+            color: white;
+            margin-left:40px;
+            text-transform:uppercase;
+            font-weight:500; margin-right:10px;
+            "> Email:</span> {{ $item->email }}</p>
 
-                <div class="social-links">
-                    <a href="{{ $item->facebook}}"><i class="fa fa-facebook"></i></a>
+                <div style="
+
+                    margin-left:40px;
+                    text-transform:uppercase;
+                    font-weight:500; margin-right:5px;
+                    "
+                    class="social-links">
+                    <a href="{{ $item->facebook}}"><i style="color: white !important;" class="fa fa-facebook"></i></a>
                     {{-- <a href="{{ $item->}}"><i class="fa fa-twitter"></i></a> --}}
-                    <a href="{{ $item->whatsapp}}"><i class="fa fa-whatsapp"></i></a>
-                    <a href="{{ $item->instagram}}"><i class="fa fa-instagram"></i></a>
+                    <a href="{{ $item->whatsapp}}"><i style="color: white !important;" class="fa fa-whatsapp"></i></a>
+                    <a href="{{ $item->instagram}}"><i style="color: white !important;" class="fa fa-instagram"></i></a>
                 </div>
             @endforeach
 
           </div>
 
-          <!-- Categories -->
+          {{-- <!-- Categories -->
           <div class="col-md-3">
             <h4>Main Category</h4>
             <ul class="links-footer">
@@ -261,7 +292,7 @@
                     <li><a href="{{ route('categ.product', $item->id) }}">{{ $item->name }}</a></li>
                 @endforeach
             </ul>
-          </div>
+          </div> --}}
 
           <!-- Categories -->
           {{-- <div class="col-md-3">
@@ -292,11 +323,11 @@
     </footer>
 
     <!-- Rights -->
-    <div class="rights">
+    <div style="background-color:black; color:white" class="rights">
       <div class="container">
         <div class="row">
           <div class="col-sm-6">
-            <p>Copyright © 2021 <a href="/" class="ri-li"> {{ trans('panel.site_title') }} </a>. All rights reserved</p>
+            <p style="color:white">Copyright © 2021 <a href="/" class="ri-li"> {{ trans('panel.site_title') }} </a>. All rights reserved</p>
           </div>
           {{-- <div class="col-sm-6 text-right"> <img src="{{ asset('assets/images/card-icon.png')}}" alt=""> </div> --}}
         </div>
@@ -315,9 +346,9 @@
     (function () {
     var options = {
     whatsapp: "+254 717 180525", // WhatsApp number
-    call_to_action: "Hi there 👋 Welcome to {{ trans('panel.site_title') }}", // Call to action
+    call_to_action: "Hi there 👋  Thank you for contacting Castle Homes! Please let us know how we can help you.", // Call to action
     position: "left", // Position may be 'right' or 'left'
-    pre_filled_message: "Hi there 👋 Welcome to {{ trans('panel.site_title') }}", // WhatsApp pre-filled message
+    pre_filled_message: "Hi there 👋  Thank you for contacting Castle Homes! Please let us know how we can help you.", // WhatsApp pre-filled message
     };
     var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
     var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';
