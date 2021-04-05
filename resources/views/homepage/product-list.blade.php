@@ -12,7 +12,7 @@
           <div class="container">
             <div class="row">
 
-              <!-- Shop Side Bar -->
+              {{-- <!-- Shop Side Bar -->
               <div class="col-md-3">
                 <div class="shop-side-bar">
 
@@ -32,10 +32,10 @@
 
 
                 </div>
-              </div>
+              </div> --}}
 
               <!-- Products -->
-              <div class="col-md-9">
+              <div class="col-md-12">
 
                 <!-- Short List -->
                 <div class="short-lst">
@@ -43,7 +43,7 @@
 
                 </div>
                 <!-- Items -->
-                <div class="item-col-4">
+                <div class="item-col-6">
                     @if (count($products) > 0)
                     @foreach ($products as $item)
                     <div class="product">
