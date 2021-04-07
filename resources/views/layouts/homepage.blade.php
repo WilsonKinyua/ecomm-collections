@@ -78,10 +78,10 @@
         </div>
 
         <!-- Cart Part -->
-        <ul class="nav navbar-right cart-pop">
-          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+        <ul  class="nav navbar-right cart-pop">
+          <li  class="dropdown float-right"> <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button"
               aria-haspopup="true" aria-expanded="false"><span class="itm-cont">{{  Cart::getContent()->count() }}</span> <i
-                class="flaticon-shopping-bag"></i> <strong>My Cart</strong> <br>
+                class="flaticon-shopping-bag float-right"></i> <strong>My Cart</strong> <br>
               <span>{{ $cartCollection = Cart::getContent()->count() }} item(s) - Ksh {{ Cart::getTotal() }}</span></a>
             <ul class="dropdown-menu">
                 @foreach (Cart::getContent() as $item)
@@ -172,28 +172,12 @@
           <!-- NAV -->
           <div class="collapse navbar-collapse" id="nav-open-btn">
             <ul class="nav">
-
-              <li class="dropdown"> <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Pages </a>
+                <li><a href="{{ route('view.cart') }}"> Cart</a></li>
+              {{-- <li class=""> <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">Pages </a>
                 <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf">
-                  {{-- <li><a href=""> Login </a></li>
-                  <li><a href=""> Register </a></li> --}}
                   <li><a href="{{ route('view.cart') }}"> Cart</a></li>
-                  {{-- <li><a href="GridProducts_3Columns.html"> Products 3 Columns </a></li>
-                  <li><a href="GridProducts_4Columns.html"> Products 4 Columns </a></li>
-                  <li><a href="ListProducts.html"> List Products </a></li>
-                  <li><a href="Product-Details.html"> Product Details </a></li> --}}
-
-                  {{-- <li><a href="Confirmation.html"> Confirmation </a></li>
-                  <li><a href="CheckoutSuccessful.html"> Checkout Successful </a></li>
-                  <li><a href="Error404.html"> Error404 </a></li>
-                  <li><a href="contact.html"> Contact </a></li>
-                  <li class="dropdown-submenu"><a href="#."> Dropdown Level </a>
-                    <ul class="dropdown-menu animated-2s fadeInRight">
-                      <li><a href="#.">Level 1</a></li>
-                    </ul>
-                  </li> --}}
                 </ul>
-              </li>
+              </li> --}}
 
               {{-- <li> <a href="shop.html">Buy theme! </a></li> --}}
             </ul>
@@ -347,9 +331,9 @@
     (function () {
     var options = {
     whatsapp: "+254 717 180525", // WhatsApp number
-    call_to_action: "Hi👋Thank you for contacting Castle Homes!....", // Call to action
+    call_to_action: "Hi👋Thank you for contacting CastleHomes", // Call to action
     position: "left", // Position may be 'right' or 'left'
-    pre_filled_message: "Hi👋Thank you for contacting Castle Homes!...", // WhatsApp pre-filled message
+    pre_filled_message: "Hi👋Thank you for contacting CastleHomes", // WhatsApp pre-filled message
     };
     var proto = document.location.protocol, host = "getbutton.io", url = proto + "//static." + host;
     var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = url + '/widget-send-button/js/init.js';

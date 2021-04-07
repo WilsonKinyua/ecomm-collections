@@ -115,12 +115,12 @@
 
 
         <!-- tab Section -->
-        <section id="myDiv" class="featur-tabs padding-top-60 padding-bottom-60">
+        <section id="myDiv" class="featur-tabs padding-top-10 padding-bottom-60">
           <div class="container">
 
             <!-- Nav tabs -->
             <ul class="nav nav-tabs nav-pills margin-bottom-40" role="tablist">
-              <li role="presentation" class="active"><a href="#featur" aria-controls="featur" role="tab"
+              <li role="presentation" class="active"><a style="font-size: 20px" href="#featur" aria-controls="featur" role="tab"
                   data-toggle="tab">Deals Of The Week</a></li>
               {{-- <li role="presentation"><a href="#special" aria-controls="special" role="tab" data-toggle="tab">Special</a>
               </li>
